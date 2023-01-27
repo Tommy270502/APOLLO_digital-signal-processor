@@ -3011,14 +3011,23 @@
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/44816841-700b-4201-b04e-eafd5c9e2cf7"
       (reference "#PWR0164") (unit 1) (value "GND") (footprint "")
     )
+    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/e90e32aa-33f2-49ed-a646-bf2b655b8476"
+      (reference "#PWR0165") (unit 1) (value "GND") (footprint "")
+    )
     (path "/b5f9f6f7-e010-4310-8002-af6cdae92cea/3df53d8a-0ef5-4cad-9d90-e6b44aee51b9"
       (reference "#PWR0166") (unit 1) (value "+3.3V") (footprint "")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/e90e32aa-33f2-49ed-a646-bf2b655b8476"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
-    )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/f0853305-c7b6-4341-b1fd-4ee57d0d3417"
-      (reference "#PWR?") (unit 1) (value "+3.3VA") (footprint "")
+      (reference "#PWR0167") (unit 1) (value "+3.3VA") (footprint "")
+    )
+    (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/831211f0-7823-460f-ae62-2c2d53a41047"
+      (reference "#PWR?") (unit 1) (value "+3.3V") (footprint "")
+    )
+    (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/b958d746-654f-4062-8f21-814245ef0de4"
+      (reference "#PWR?") (unit 1) (value "+3.3V") (footprint "")
+    )
+    (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/ee3e3ad2-33bf-4fdd-b41f-f05f1357580a"
+      (reference "#PWR?") (unit 1) (value "+3.3V") (footprint "")
     )
     (path "/c13dcc0f-7bb1-4e5a-bfba-98b9c05730e9"
       (reference "C1") (unit 1) (value "100n") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
@@ -3168,7 +3177,7 @@
       (reference "J5") (unit 1) (value "Conn_01x04") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/af8aa8a5-7da2-4390-9806-eaec48976161"
-      (reference "J?") (unit 1) (value "Conn_01x04") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+      (reference "J6") (unit 1) (value "Conn_01x04") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
     )
     (path "/cb2be3a8-4093-4d3d-a591-04b36f006df7"
       (reference "R1") (unit 1) (value "300R") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
