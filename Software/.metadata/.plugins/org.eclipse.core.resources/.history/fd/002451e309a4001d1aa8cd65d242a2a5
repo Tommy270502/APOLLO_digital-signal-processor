@@ -1,0 +1,21 @@
+/*
+ * LowPassFilter.c
+ *
+ *  Created on: Feb 3, 2023
+ *      Author: Perri
+ */
+#include "LowPassFilter.h"
+#include  <stdint.h>
+#include <stdio.h>
+
+uint8_t init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletimeS) {
+	float RC = 1.00f / (6.28318531f * cutoffFreq);
+
+	&handle->alpha[0] = sampletimeS / (sampletimeS + RC);
+	&handle->alpha[0] = RC / (sampletimeS + RC);
+
+}
+
+uint8_t update_LowPassFilter(LowPassFilter *handle, float input) {
+
+}

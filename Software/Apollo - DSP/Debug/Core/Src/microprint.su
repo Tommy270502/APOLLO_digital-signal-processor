@@ -1,0 +1,3 @@
+../Core/Src/microprint.c:3:6:uprintFloat	40	static,ignoring_inline_asm
+../Core/Src/microprint.c:19:6:uprintNum	40	static,ignoring_inline_asm
+../Core/Src/microprint.c:37:6:uprintStr	32	static,ignoring_inline_asm
