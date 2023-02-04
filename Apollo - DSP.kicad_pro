@@ -395,8 +395,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "Gerber/Apollo - DSP.step",
+      "vrml": "Gerber/Apollo - DSP.wrl"
     },
     "page_layout_descr_file": ""
   },
