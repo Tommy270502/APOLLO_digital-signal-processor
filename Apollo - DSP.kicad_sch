@@ -1823,8 +1823,8 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 162d0798-9fd6-4324-aa6e-7b20b4a56a99)
     (property "Reference" "U3" (id 0) (at 158.75 59.69 0))
-    (property "Value" "AP2127K-3.3" (id 1) (at 158.75 62.23 0))
-    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (id 2) (at 158.75 61.595 0)
+    (property "Value" "" (id 1) (at 158.75 62.23 0))
+    (property "Footprint" "" (id 2) (at 158.75 61.595 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2127.pdf" (id 3) (at 158.75 67.31 0)
@@ -1919,8 +1919,8 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 29fc2250-c13d-4f92-82dc-4201bf9206dc)
     (property "Reference" "U1" (id 0) (at 130.81 24.13 0))
-    (property "Value" "AP2127K-3.3" (id 1) (at 130.81 26.67 0))
-    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (id 2) (at 130.81 26.035 0)
+    (property "Value" "" (id 1) (at 130.81 26.67 0))
+    (property "Footprint" "" (id 2) (at 130.81 26.035 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2127.pdf" (id 3) (at 130.81 31.75 0)
@@ -3222,25 +3222,25 @@
       (reference "R12") (unit 1) (value "33R") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
     (path "/29fc2250-c13d-4f92-82dc-4201bf9206dc"
-      (reference "U1") (unit 1) (value "AP2127K-3.3") (footprint "Package_TO_SOT_SMD:SOT-23-5")
+      (reference "U1") (unit 1) (value "NCP115ASN330T2G") (footprint "Package_TO_SOT_SMD:SOT-23-5")
     )
     (path "/68e0c342-0593-4780-8f29-05b8479887ed"
       (reference "U2") (unit 1) (value "USBLC6-2SC6") (footprint "SnapEDA Library:SOT95P280X145-6N")
     )
     (path "/162d0798-9fd6-4324-aa6e-7b20b4a56a99"
-      (reference "U3") (unit 1) (value "AP2127K-3.3") (footprint "Package_TO_SOT_SMD:SOT-23-5")
+      (reference "U3") (unit 1) (value "NCP115ASN330T2G") (footprint "Package_TO_SOT_SMD:SOT-23-5")
     )
     (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/e9cfdde6-7112-4587-8587-8eb874bda1d5"
       (reference "U4") (unit 1) (value "STM32F401RBTx") (footprint "Package_QFP:LQFP-64_10x10mm_P0.5mm")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/a5b9760b-8785-4624-a40f-28fbfba8cf17"
-      (reference "U5") (unit 1) (value "LM741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+      (reference "U5") (unit 1) (value "UA741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/25f29ed5-d612-4c08-99e0-dd6abccd4d2d"
-      (reference "U6") (unit 1) (value "LM741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+      (reference "U6") (unit 1) (value "UA741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/b5f9f6f7-e010-4310-8002-af6cdae92cea/d805e001-afd6-4db7-bc41-cdb2bc416620"
-      (reference "U7") (unit 1) (value "ESP-PSRAM32") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+      (reference "U7") (unit 1) (value "23A256 - SRAM") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/12a2e309-94ba-47b4-a076-bcf7f0bbcc58"
       (reference "Y1") (unit 1) (value "16MHz") (footprint "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm")
