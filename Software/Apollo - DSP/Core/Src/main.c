@@ -78,8 +78,9 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t data_array[] = {1,2,3,2,1,3,2,1,3,1,10,1,2,3,1,2,3,1,3,20,1,2,3,1,2,3,1,2,3,32,2,1,2};
-	uint8_t i = 0;
+	float adcVal = 0;
+	uint8_t timerUSB = 0;
+	char logBuf[64];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -117,13 +118,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	update_LowPassFilter(&LPF1, data_array[i]);
-	uprintFloat(LPF1.out[0]);
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	adcVal = HAL_ADC_GetValue(&hadc1);
+	update_LowPassFilter(&LPF1, adcVal);
 
-	if(i>=33) {
-		i = 0;
-	} else {
-		i++;
+	if ((HAL_GetTick() - timerUSB) >= 20) {
+		sprintf(logBuf, "%.2f,%.2f\r\n", adcVal, (LPF1.out[0]));
+	  	CDC_Transmit_FS((uint8_t *) logBuf, strlen(logBuf));
+
+	  	timerUSB = HAL_GetTick();
 	}
 
 	HAL_Delay(10);

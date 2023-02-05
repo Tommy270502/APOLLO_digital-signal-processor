@@ -119,3 +119,68 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Perri\Desktop
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-02-03 23:30:47.108
 !MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 4.88 sec: 13’428 declarations; 70’668 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+!SESSION 2023-02-05 18:34:40.147 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Framework arguments:  C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.project
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-02-05 18:34:45.107
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-02-05 18:34:50.543
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-02-05 18:34:50.606
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-05 18:35:11.202
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-05 18:35:16.491
+!MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 4.91 sec: 13,428 declarations; 70,668 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+!SESSION 2023-02-05 18:36:11.354 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-02-05 18:36:20.589
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-02-05 18:36:20.652
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-05 18:36:24.562
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-02-05 21:10:15.677 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Framework arguments:  C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Perri\Desktop\Apollo - DSP\Software C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-02-05 21:10:19.254
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-02-05 21:10:19.301
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-05 21:10:23.573
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-05 21:10:28.844
+!MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 4.69 sec: 13’428 declarations; 70’668 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-05 21:13:39.169
+!MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 3 sec: 13,428 declarations; 70,668 references; 2 unresolved inclusions; 42 syntax errors; 150 unresolved names (0.18%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-05 21:16:12.237
+!MESSAGE Indexed 'Apollo - DSP' (42 sources, 137 headers) in 2.32 sec: 13,479 declarations; 71,185 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-05 21:16:15.456
+!MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 1.92 sec: 13,429 declarations; 70,682 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)

@@ -1,17 +1,16 @@
-22:48:06 **** Incremental Build of configuration Debug for project Apollo - DSP ****
+21:16:59 **** Incremental Build of configuration Release for project Apollo - DSP ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Apollo - DSP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\STM32F401RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Apollo - DSP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc -o "Apollo - DSP.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\STM32F401RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Apollo - DSP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Apollo - DSP.elf
  
 arm-none-eabi-size   Apollo\ -\ DSP.elf 
 arm-none-eabi-objdump -h -S  Apollo\ -\ DSP.elf  > "Apollo - DSP.list"
    text	   data	    bss	    dec	    hex	filename
-  48860	    364	   7148	  56372	   dc34	Apollo - DSP.elf
+  40404	    724	   7148	  48276	   bc94	Apollo - DSP.elf
 Finished building: default.size.stdout
  
 Finished building: Apollo - DSP.list
  
 
-22:48:07 Build Finished. 0 errors, 0 warnings. (took 801ms)
+21:16:59 Build Finished. 0 errors, 0 warnings. (took 408ms)
 
