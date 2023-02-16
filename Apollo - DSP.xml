@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\Perri\Desktop\Apollo - DSP\Apollo - DSP.kicad_sch</source>
-    <date>04/02/2023 00:34:40</date>
+    <date>16/02/2023 23:30:03</date>
     <tool>Eeschema (6.0.4)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -297,7 +297,7 @@
       <tstamps>7ffd0d54-53dd-4302-bcc0-c4134ad9bffc</tstamps>
     </comp>
     <comp ref="U1">
-      <value>AP2127K-3.3</value>
+      <value>NCP115ASN330T2G</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
       <datasheet>https://www.diodes.com/assets/Datasheets/AP2127.pdf</datasheet>
       <libsource lib="Regulator_Linear" part="AP2127K-3.3" description="300mA low dropout linear regulator, shutdown pin, 2.5V-6V input voltage, 3.3V fixed positive output, SOT-23-5"/>
@@ -332,7 +332,7 @@
       <tstamps>68e0c342-0593-4780-8f29-05b8479887ed</tstamps>
     </comp>
     <comp ref="U3">
-      <value>AP2127K-3.3</value>
+      <value>NCP115ASN330T2G</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
       <datasheet>https://www.diodes.com/assets/Datasheets/AP2127.pdf</datasheet>
       <libsource lib="Regulator_Linear" part="AP2127K-3.3" description="300mA low dropout linear regulator, shutdown pin, 2.5V-6V input voltage, 3.3V fixed positive output, SOT-23-5"/>
@@ -667,7 +667,7 @@
       <tstamps>20223c72-7e3a-4bd7-ae96-b6074ddd70cc</tstamps>
     </comp>
     <comp ref="U5">
-      <value>LM741</value>
+      <value>UA741</value>
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
       <datasheet>http://www.ti.com/lit/ds/symlink/lm741.pdf</datasheet>
       <libsource lib="Amplifier_Operational" part="LM741" description="Operational Amplifier, DIP-8/TO-99-8"/>
@@ -677,7 +677,7 @@
       <tstamps>a5b9760b-8785-4624-a40f-28fbfba8cf17</tstamps>
     </comp>
     <comp ref="U6">
-      <value>LM741</value>
+      <value>UA741</value>
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
       <datasheet>http://www.ti.com/lit/ds/symlink/lm741.pdf</datasheet>
       <libsource lib="Amplifier_Operational" part="LM741" description="Operational Amplifier, DIP-8/TO-99-8"/>
@@ -736,7 +736,7 @@
       <tstamps>0ced490d-b00d-4eec-b798-e38b7015cec5</tstamps>
     </comp>
     <comp ref="U7">
-      <value>ESP-PSRAM32</value>
+      <value>23A256 - SRAM</value>
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
       <datasheet>https://www.espressif.com/sites/default/files/documentation/esp-psram32_datasheet_en.pdf</datasheet>
       <libsource lib="Memory_RAM" part="ESP-PSRAM32" description="32 Mbit serial pseudo SRAM device organized as 4Mx8 bits, 1.8 VCC, SOIC8 (SOP8)"/>
