@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\Perri\Desktop\Apollo - DSP\Apollo - DSP.kicad_sch</source>
-    <date>18/02/2023 15:41:23</date>
+    <date>18/02/2023 15:54:42</date>
     <tool>Eeschema (6.0.4)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -339,6 +339,16 @@
       <property name="Sheetfile" value="Apollo - DSP.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ae0bc033-5ea1-4c90-ad13-904a827000a4</tstamps>
+    </comp>
+    <comp ref="U6">
+      <value>AP2112K-3.3</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/AP2112.pdf</datasheet>
+      <libsource lib="Regulator_Linear" part="AP2112K-3.3" description="600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Apollo - DSP.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>363ffca4-62b1-4457-85a0-7e231e11aba2</tstamps>
     </comp>
     <comp ref="C14">
       <value>100n</value>
@@ -1098,6 +1108,26 @@
         <pin num="5" name="out" type="output"/>
       </pins>
     </libpart>
+    <libpart lib="Regulator_Linear" part="AP2112K-3.3">
+      <description>600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5</description>
+      <docs>https://www.diodes.com/assets/Datasheets/AP2112.pdf</docs>
+      <footprints>
+        <fp>SOT?23?5*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">AP2112K-3.3</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/AP2112.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="NC" type="no_connect"/>
+        <pin num="5" name="VOUT" type="power_out"/>
+      </pins>
+    </libpart>
     <libpart lib="USBLC6-2SC6" part="USBLC6-2SC6">
       <fields>
         <field name="Reference">U?</field>
@@ -1145,6 +1175,9 @@
     </library>
     <library logical="NCP115ASN330T2G">
       <uri>C:/Users/Perri/Documents/KiCad/6.0/symbols/NCP115ASN330T2G.kicad_sym</uri>
+    </library>
+    <library logical="Regulator_Linear">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
     </library>
     <library logical="USBLC6-2SC6">
       <uri>C:/Users/Perri/SnapEDA Kicad Plugin/KiCad Library/SnapEDA Library/USBLC6-2SC6.kicad_sym</uri>
@@ -1577,6 +1610,21 @@
     </net>
     <net code="83" name="unconnected-(U4-Pad62)">
       <node ref="U4" pin="62" pinfunction="PB9" pintype="bidirectional"/>
+    </net>
+    <net code="84" name="unconnected-(U6-Pad1)">
+      <node ref="U6" pin="1" pinfunction="VIN" pintype="power_in"/>
+    </net>
+    <net code="85" name="unconnected-(U6-Pad2)">
+      <node ref="U6" pin="2" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="86" name="unconnected-(U6-Pad3)">
+      <node ref="U6" pin="3" pinfunction="EN" pintype="input"/>
+    </net>
+    <net code="87" name="unconnected-(U6-Pad4)">
+      <node ref="U6" pin="4" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="88" name="unconnected-(U6-Pad5)">
+      <node ref="U6" pin="5" pinfunction="VOUT" pintype="power_out"/>
     </net>
   </nets>
 </export>

@@ -6,16 +6,16 @@
 <h2>KiBoM PCB Bill of Materials</h2>
 <table border="1">
 <tr><td>Source File</td><td>Apollo - DSP.kicad_sch</td></tr>
-<tr><td>BoM Date</td><td>18/02/2023 14:14:36</td></tr>
+<tr><td>BoM Date</td><td>18/02/2023 15:41:23</td></tr>
 <tr><td>Schematic Version</td><td></td></tr>
 <tr><td>Schematic Date</td><td></td></tr>
 <tr><td>PCB Variant</td><td>default</td></tr>
 <tr><td>KiCad Version</td><td>Eeschema (6.0.4)</td></tr>
 <tr><td>Component Groups</td><td>24</td></tr>
-<tr><td>Component Count (per PCB)</td><td>71</td></tr>
-<tr><td>Fitted Components (per PCB)</td><td>71</td></tr>
+<tr><td>Component Count (per PCB)</td><td>70</td></tr>
+<tr><td>Fitted Components (per PCB)</td><td>70</td></tr>
 <tr><td>Number of PCBs</td><td>1</td></tr>
-<tr><td>Total Component Count<br>(for 1 PCBs)</td><td>71</td></tr>
+<tr><td>Total Component Count<br>(for 1 PCBs)</td><td>70</td></tr>
 </table>
 <br>
 <h2>Component Groups</h2>
@@ -366,6 +366,23 @@
 </tr>
 <tr>
 	<td align="center">20</td>
+	<td align="center" bgcolor=#FFE6B3>Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8</td>
+	<td align="center" bgcolor=#FFE6B3>LM358</td>
+	<td align="center" bgcolor=#FFE6B3>U5</td>
+	<td align="center" bgcolor=#FFE6B3>LM358</td>
+	<td align="center" bgcolor=#FFE6B3>SOIC-8_3.9x4.9mm_P1.27mm</td>
+	<td align="center" bgcolor=#E6FFEE>1</td>
+	<td align="center" bgcolor=#FFE6B3><a href="http://www.ti.com/lit/ds/symlink/lm2904-n.pdf">http://www.ti.com/lit/ds/symlink/lm2904-n.pdf</a></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+	<td align="center" bgcolor=#FF8080></td>
+</tr>
+<tr>
+	<td align="center">21</td>
 	<td align="center" bgcolor=#FFE6B3>5V to 3V3 LDO @ 300mA</td>
 	<td align="center" bgcolor=#FFE6B3>NCP115ASN330T2G</td>
 	<td align="center" bgcolor=#FFE6B3>U1 U3</td>
@@ -382,7 +399,7 @@
 	<td align="center" bgcolor=#FF8080></td>
 </tr>
 <tr>
-	<td align="center">21</td>
+	<td align="center">22</td>
 	<td align="center" bgcolor=#FFE6B3>ARM Cortex-M4 MCU, 128KB flash, 64KB RAM, 84MHz, 1.7-3.6V, 50 GPIO, LQFP-64</td>
 	<td align="center" bgcolor=#FFE6B3>STM32F401RBTx</td>
 	<td align="center" bgcolor=#FFE6B3>U4</td>
@@ -390,23 +407,6 @@
 	<td align="center" bgcolor=#FFE6B3>LQFP-64_10x10mm_P0.5mm</td>
 	<td align="center" bgcolor=#E6FFEE>1</td>
 	<td align="center" bgcolor=#FFE6B3><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00086815.pdf">http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00086815.pdf</a></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-	<td align="center" bgcolor=#FF8080></td>
-</tr>
-<tr>
-	<td align="center">22</td>
-	<td align="center" bgcolor=#FFE6B3>Operational Amplifier, DIP-8/TO-99-8</td>
-	<td align="center" bgcolor=#FFE6B3>LM741</td>
-	<td align="center" bgcolor=#FFE6B3>U5 U6</td>
-	<td align="center" bgcolor=#FFE6B3>UA741</td>
-	<td align="center" bgcolor=#FFE6B3>SOIC-8_3.9x4.9mm_P1.27mm</td>
-	<td align="center" bgcolor=#E6FFEE>2</td>
-	<td align="center" bgcolor=#FFE6B3><a href="http://www.ti.com/lit/ds/symlink/lm741.pdf">http://www.ti.com/lit/ds/symlink/lm741.pdf</a></td>
 	<td align="center" bgcolor=#FF8080></td>
 	<td align="center" bgcolor=#FF8080></td>
 	<td align="center" bgcolor=#FF8080></td>
