@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\Perri\Desktop\Apollo - DSP\Apollo - DSP.kicad_sch</source>
-    <date>18/02/2023 14:14:36</date>
+    <date>18/02/2023 15:41:23</date>
     <tool>Eeschema (6.0.4)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -519,7 +519,7 @@
       <property name="Sheetname" value="Analog"/>
       <property name="Sheetfile" value="Analog.kicad_sch"/>
       <sheetpath names="/Analog/" tstamps="/b09314ce-9d59-4e3d-844f-f36b76e34219/"/>
-      <tstamps>c56ccf19-fb6e-4cf7-834e-83bb43ae85d9</tstamps>
+      <tstamps>551b8ac3-e86b-4b48-8a76-04b2606ae224</tstamps>
     </comp>
     <comp ref="C25">
       <value>100n</value>
@@ -666,24 +666,14 @@
       <tstamps>20223c72-7e3a-4bd7-ae96-b6074ddd70cc</tstamps>
     </comp>
     <comp ref="U5">
-      <value>UA741</value>
+      <value>LM358</value>
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
-      <datasheet>http://www.ti.com/lit/ds/symlink/lm741.pdf</datasheet>
-      <libsource lib="Amplifier_Operational" part="LM741" description="Operational Amplifier, DIP-8/TO-99-8"/>
+      <datasheet>http://www.ti.com/lit/ds/symlink/lm2904-n.pdf</datasheet>
+      <libsource lib="Amplifier_Operational" part="LM358" description="Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8"/>
       <property name="Sheetname" value="Analog"/>
       <property name="Sheetfile" value="Analog.kicad_sch"/>
       <sheetpath names="/Analog/" tstamps="/b09314ce-9d59-4e3d-844f-f36b76e34219/"/>
-      <tstamps>a5b9760b-8785-4624-a40f-28fbfba8cf17</tstamps>
-    </comp>
-    <comp ref="U6">
-      <value>UA741</value>
-      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
-      <datasheet>http://www.ti.com/lit/ds/symlink/lm741.pdf</datasheet>
-      <libsource lib="Amplifier_Operational" part="LM741" description="Operational Amplifier, DIP-8/TO-99-8"/>
-      <property name="Sheetname" value="Analog"/>
-      <property name="Sheetfile" value="Analog.kicad_sch"/>
-      <sheetpath names="/Analog/" tstamps="/b09314ce-9d59-4e3d-844f-f36b76e34219/"/>
-      <tstamps>25f29ed5-d612-4c08-99e0-dd6abccd4d2d</tstamps>
+      <tstamps>d5cd78b0-4952-4ab2-96df-08b528197b29 908f12d3-6f32-49e0-a98d-46fe0ea3057c 6f395af9-f438-456f-b6f4-33a3701decbc</tstamps>
     </comp>
     <comp ref="C30">
       <value>10u</value>
@@ -746,26 +736,36 @@
     </comp>
   </components>
   <libparts>
-    <libpart lib="Amplifier_Operational" part="LM741">
-      <description>Operational Amplifier, DIP-8/TO-99-8</description>
-      <docs>http://www.ti.com/lit/ds/symlink/lm741.pdf</docs>
+    <libpart lib="Amplifier_Operational" part="LM358">
+      <description>Low-Power, Dual Operational Amplifiers, DIP-8/SOIC-8/TO-99-8</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm2904-n.pdf</docs>
       <footprints>
         <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
         <fp>DIP*W7.62mm*</fp>
+        <fp>TO*99*</fp>
+        <fp>OnSemi*Micro8*</fp>
         <fp>TSSOP*3x3mm*P0.65mm*</fp>
+        <fp>TSSOP*4.4x3mm*P0.65mm*</fp>
+        <fp>MSOP*3x3mm*P0.65mm*</fp>
+        <fp>SSOP*3.9x4.9mm*P0.635mm*</fp>
+        <fp>LFCSP*2x2mm*P0.5mm*</fp>
+        <fp>*SIP*</fp>
+        <fp>SOIC*5.3x6.2mm*P1.27mm*</fp>
       </footprints>
       <fields>
-        <field name="Reference">U?</field>
-        <field name="Value">LM741</field>
-        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/lm741.pdf</field>
+        <field name="Reference">U</field>
+        <field name="Value">LM358</field>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/lm2904-n.pdf</field>
       </fields>
       <pins>
+        <pin num="1" name="" type="output"/>
         <pin num="2" name="-" type="input"/>
         <pin num="3" name="+" type="input"/>
         <pin num="4" name="V-" type="power_in"/>
-        <pin num="6" name="" type="output"/>
-        <pin num="7" name="V+" type="power_in"/>
-        <pin num="8" name="NC" type="no_connect"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
       </pins>
     </libpart>
     <libpart lib="Connector" part="USB_C_Receptacle_USB2.0">
@@ -1172,19 +1172,18 @@
     <net code="3" name="+5VA">
       <node ref="C10" pin="1" pintype="passive"/>
       <node ref="C11" pin="1" pintype="passive"/>
-      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="C24" pin="2" pintype="passive"/>
       <node ref="C25" pin="1" pintype="passive"/>
       <node ref="C9" pin="1" pintype="passive"/>
       <node ref="FB2" pin="2" pintype="passive"/>
       <node ref="U3" pin="1" pinfunction="in" pintype="input"/>
       <node ref="U3" pin="3" pinfunction="EN" pintype="input"/>
-      <node ref="U5" pin="7" pinfunction="V+" pintype="power_in"/>
-      <node ref="U6" pin="7" pinfunction="V+" pintype="power_in"/>
+      <node ref="U5" pin="8" pinfunction="V+" pintype="power_in"/>
     </net>
     <net code="4" name="/Analog/CH0_+">
       <node ref="C27" pin="2" pintype="passive"/>
       <node ref="R10" pin="1" pintype="passive"/>
-      <node ref="U6" pin="3" pinfunction="+" pintype="input"/>
+      <node ref="U5" pin="3" pinfunction="+" pintype="input"/>
     </net>
     <net code="5" name="/Analog/CH0_LPF">
       <node ref="C27" pin="1" pintype="passive"/>
@@ -1193,13 +1192,13 @@
     </net>
     <net code="6" name="/Analog/CH0_OP_OUT">
       <node ref="C29" pin="1" pintype="passive"/>
-      <node ref="U6" pin="2" pinfunction="-" pintype="input"/>
-      <node ref="U6" pin="6" pintype="output"/>
+      <node ref="U5" pin="1" pintype="output"/>
+      <node ref="U5" pin="2" pinfunction="-" pintype="input"/>
     </net>
     <net code="7" name="/Analog/CH1_+">
       <node ref="C26" pin="2" pintype="passive"/>
       <node ref="R9" pin="1" pintype="passive"/>
-      <node ref="U5" pin="3" pinfunction="+" pintype="input"/>
+      <node ref="U5" pin="5" pinfunction="+" pintype="input"/>
     </net>
     <net code="8" name="/Analog/CH1_LPF">
       <node ref="C26" pin="1" pintype="passive"/>
@@ -1208,8 +1207,8 @@
     </net>
     <net code="9" name="/Analog/CH1_OP_OUT">
       <node ref="C32" pin="1" pintype="passive"/>
-      <node ref="U5" pin="2" pinfunction="-" pintype="input"/>
-      <node ref="U5" pin="6" pintype="output"/>
+      <node ref="U5" pin="6" pinfunction="-" pintype="input"/>
+      <node ref="U5" pin="7" pintype="output"/>
     </net>
     <net code="10" name="/POW">
       <node ref="F1" pin="1" pintype="passive"/>
@@ -1290,7 +1289,7 @@
       <node ref="C21" pin="2" pintype="passive"/>
       <node ref="C22" pin="2" pintype="passive"/>
       <node ref="C23" pin="2" pintype="passive"/>
-      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="C24" pin="1" pintype="passive"/>
       <node ref="C25" pin="2" pintype="passive"/>
       <node ref="C28" pin="1" pintype="passive"/>
       <node ref="C3" pin="2" pintype="passive"/>
@@ -1337,7 +1336,6 @@
       <node ref="U4" pin="47" pinfunction="VSS" pintype="power_in"/>
       <node ref="U4" pin="63" pinfunction="VSS" pintype="power_in"/>
       <node ref="U5" pin="4" pinfunction="V-" pintype="power_in"/>
-      <node ref="U6" pin="4" pinfunction="V-" pintype="power_in"/>
       <node ref="U7" pin="4" pinfunction="VSS" pintype="power_in"/>
       <node ref="Y1" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="Y1" pin="4" pinfunction="4" pintype="passive"/>
@@ -1579,12 +1577,6 @@
     </net>
     <net code="83" name="unconnected-(U4-Pad62)">
       <node ref="U4" pin="62" pinfunction="PB9" pintype="bidirectional"/>
-    </net>
-    <net code="84" name="unconnected-(U5-Pad8)">
-      <node ref="U5" pin="8" pinfunction="NC" pintype="no_connect"/>
-    </net>
-    <net code="85" name="unconnected-(U6-Pad8)">
-      <node ref="U6" pin="8" pinfunction="NC" pintype="no_connect"/>
     </net>
   </nets>
 </export>
