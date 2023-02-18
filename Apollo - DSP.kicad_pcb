@@ -305,6 +305,11 @@
     (pad "4" smd roundrect (at 1.2 0.95 180) (size 1.325 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 93c2f3fd-501e-4c97-8c65-b5baa119482a))
     (pad "5" smd roundrect (at 1.2 -0.95 180) (size 1.325 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 4 "3.3V") (pinfunction "out") (pintype "output") (tstamp 215d806f-ba31-4c67-a3e2-44d3710ca768))
+    (model "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (layer "F.Cu")
@@ -463,6 +468,11 @@
     (pad "4" smd roundrect (at 1.2 0.95 180) (size 1.325 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 1c3e5913-b44f-4df4-a842-971f8a194ede))
     (pad "5" smd roundrect (at 1.2 -0.95 180) (size 1.325 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 7 "+3.3VA") (pinfunction "out") (pintype "output") (tstamp c0033fe3-d42b-4233-a56f-d5a041ef1744))
+    (model "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (layer "F.Cu")
