@@ -2004,7 +2004,7 @@
   (symbol (lib_id "NCP115ASN330T2G:NCP115ASN330T2G") (at 130.81 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 609c70f4-1479-4ca4-a93e-8230d97706fb)
-    (property "Reference" "U?" (id 0) (at 130.81 25.4 0))
+    (property "Reference" "U1" (id 0) (at 130.81 25.4 0))
     (property "Value" "" (id 1) (at 130.81 27.94 0))
     (property "Footprint" "" (id 2) (at 132.08 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2328,7 +2328,7 @@
   (symbol (lib_id "NCP115ASN330T2G:NCP115ASN330T2G") (at 158.75 68.58 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid ae0bc033-5ea1-4c90-ad13-904a827000a4)
-    (property "Reference" "U?" (id 0) (at 158.75 60.96 0))
+    (property "Reference" "U3" (id 0) (at 158.75 60.96 0))
     (property "Value" "" (id 1) (at 158.75 63.5 0))
     (property "Footprint" "" (id 2) (at 160.02 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2945,26 +2945,14 @@
     (path "/a34c231b-9107-4aac-98b1-31e03f50da81"
       (reference "#PWR0148") (unit 1) (value "VAA") (footprint "")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/6dec1ecd-8b10-49c0-9203-5f6821834594"
-      (reference "#PWR0149") (unit 1) (value "GND") (footprint "")
-    )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/41987e8b-459e-4a38-9367-1c5754719b23"
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/e143d59a-5d09-4371-8a64-9bd9e845d66f"
       (reference "#PWR0151") (unit 1) (value "VAA") (footprint "")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/c73f42df-a146-481a-a87a-1c3e287e6d2b"
-      (reference "#PWR0152") (unit 1) (value "+5VA") (footprint "")
-    )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/f0159b49-748a-4a09-9821-d873cf57eb18"
-      (reference "#PWR0153") (unit 1) (value "GND") (footprint "")
-    )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/0dcab9c6-e482-4670-a70b-daa2a4fc9120"
       (reference "#PWR0154") (unit 1) (value "GND") (footprint "")
-    )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/880ff4d4-753a-452e-a8ed-004dbad187c3"
-      (reference "#PWR0155") (unit 1) (value "GND") (footprint "")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/33990e6f-d24e-48a0-81b6-690c743d398c"
       (reference "#PWR0156") (unit 1) (value "+5VA") (footprint "")
@@ -3089,7 +3077,7 @@
     (path "/f011f411-95e9-47d0-bece-639d6cb038d7"
       (reference "C23") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/c56ccf19-fb6e-4cf7-834e-83bb43ae85d9"
+    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/551b8ac3-e86b-4b48-8a76-04b2606ae224"
       (reference "C24") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder")
     )
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/5fcadc4c-abcb-422b-826e-9b5d5e9445e7"
@@ -3209,26 +3197,29 @@
     (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/20223c72-7e3a-4bd7-ae96-b6074ddd70cc"
       (reference "R12") (unit 1) (value "33R") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
+    (path "/609c70f4-1479-4ca4-a93e-8230d97706fb"
+      (reference "U1") (unit 1) (value "NCP115ASN330T2G") (footprint "NCP115ASN330T2G:NCP115ASN330T2G")
+    )
     (path "/68e0c342-0593-4780-8f29-05b8479887ed"
       (reference "U2") (unit 1) (value "USBLC6-2SC6") (footprint "SnapEDA Library:SOT95P280X145-6N")
+    )
+    (path "/ae0bc033-5ea1-4c90-ad13-904a827000a4"
+      (reference "U3") (unit 1) (value "NCP115ASN330T2G") (footprint "NCP115ASN330T2G:NCP115ASN330T2G")
     )
     (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/e9cfdde6-7112-4587-8587-8eb874bda1d5"
       (reference "U4") (unit 1) (value "STM32F401RBTx") (footprint "Package_QFP:LQFP-64_10x10mm_P0.5mm")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/a5b9760b-8785-4624-a40f-28fbfba8cf17"
-      (reference "U5") (unit 1) (value "UA741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/d5cd78b0-4952-4ab2-96df-08b528197b29"
+      (reference "U5") (unit 1) (value "LM358") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
-    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/25f29ed5-d612-4c08-99e0-dd6abccd4d2d"
-      (reference "U6") (unit 1) (value "UA741") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/6f395af9-f438-456f-b6f4-33a3701decbc"
+      (reference "U5") (unit 2) (value "LM358") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+    )
+    (path "/b09314ce-9d59-4e3d-844f-f36b76e34219/908f12d3-6f32-49e0-a98d-46fe0ea3057c"
+      (reference "U5") (unit 3) (value "LM358") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/b5f9f6f7-e010-4310-8002-af6cdae92cea/d805e001-afd6-4db7-bc41-cdb2bc416620"
       (reference "U7") (unit 1) (value "23A256 - SRAM") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
-    )
-    (path "/609c70f4-1479-4ca4-a93e-8230d97706fb"
-      (reference "U?") (unit 1) (value "NCP115ASN330T2G") (footprint "NCP115ASN330T2G:NCP115ASN330T2G")
-    )
-    (path "/ae0bc033-5ea1-4c90-ad13-904a827000a4"
-      (reference "U?") (unit 1) (value "NCP115ASN330T2G") (footprint "NCP115ASN330T2G:NCP115ASN330T2G")
     )
     (path "/65c41d2a-7921-40f6-8a66-43d43155f96a/12a2e309-94ba-47b4-a076-bcf7f0bbcc58"
       (reference "Y1") (unit 1) (value "16MHz") (footprint "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm")
