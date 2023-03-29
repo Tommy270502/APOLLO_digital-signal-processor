@@ -1,0 +1,3 @@
+microprint.c:3:6:uprintFloat	3
+microprint.c:19:6:uprintNum	3
+microprint.c:37:6:uprintStr	3

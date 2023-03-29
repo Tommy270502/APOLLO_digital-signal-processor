@@ -199,3 +199,52 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-16 22:12:05.598
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-02-28 22:24:37.710 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Framework arguments:  C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Perri\Desktop\Apollo - DSP\Software C:\Users\Perri\Desktop\Apollo - DSP\Software\Apollo - DSP\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-02-28 22:24:42.328
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-02-28 22:24:42.407
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-28 22:24:48.107
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-28 22:24:53.093
+!MESSAGE Indexed 'Apollo - DSP' (41 sources, 137 headers) in 4.43 sec: 13’429 declarations; 70’682 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+!SESSION 2023-03-05 00:21:26.210 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-05 00:21:45.842
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-05 00:21:46.004
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-05 00:22:02.576
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-03-09 22:14:28.659 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_CH
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-09 22:14:45.689
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-09 22:14:45.803
+!MESSAGE Log4j initialized with config file C:\Users\Perri\Desktop\Apollo - DSP\Software\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-09 22:14:58.803
+!MESSAGE Started RMI Server, listening on port 41337

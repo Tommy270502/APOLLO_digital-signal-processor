@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Ex_58KQTEe2EWOeZBZzoXw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_Ex_58aQTEe2EWOeZBZzoXw" bindingContexts="_Ex_-MqQTEe2EWOeZBZzoXw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/main.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/main.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.st.stm32cube.common.mx.startCubeMx&quot; name=&quot;Apollo - DSP.ioc&quot; tooltip=&quot;Apollo - DSP/Apollo - DSP.ioc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Apollo - DSP.ioc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/LowPassFilter.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/LowPassFilter.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/microprint.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/microprint.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/LowPassFilter.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Inc/LowPassFilter.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/microprint.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Inc/microprint.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/LowPassFilter.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Inc/LowPassFilter.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/LowPassFilter.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/LowPassFilter.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/microprint.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/microprint.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/microprint.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Inc/microprint.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.st.stm32cube.common.mx.startCubeMx&quot; name=&quot;Apollo - DSP.ioc&quot; tooltip=&quot;Apollo - DSP/Apollo - DSP.ioc&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Apollo - DSP.ioc&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/main.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Apollo - DSP/Core/Src/main.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_Ex_58aQTEe2EWOeZBZzoXw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_Ex_58qQTEe2EWOeZBZzoXw" x="568" y="85" width="1024" height="768">
     <persistedState key="coolBarVisible" value="true"/>
@@ -67,9 +67,8 @@
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.buildanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.stackanalyzer.stackanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.sfrview</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_Ex_59aQTEe2EWOeZBZzoXw" selectedElement="_Ex_59qQTEe2EWOeZBZzoXw" horizontal="true">
-            <children xsi:type="basic:PartStack" xmi:id="_Ex_59qQTEe2EWOeZBZzoXw" elementId="topLeft" containerData="2500" selectedElement="_Ex_596QTEe2EWOeZBZzoXw">
-              <tags>active</tags>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_Ex_59aQTEe2EWOeZBZzoXw" selectedElement="_Ex_5-6QTEe2EWOeZBZzoXw" horizontal="true">
+            <children xsi:type="basic:PartStack" xmi:id="_Ex_59qQTEe2EWOeZBZzoXw" elementId="topLeft" containerData="1365" selectedElement="_Ex_596QTEe2EWOeZBZzoXw">
               <children xsi:type="advanced:Placeholder" xmi:id="_Ex_596QTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_Ex_8CaQTEe2EWOeZBZzoXw" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:General</tags>
@@ -83,10 +82,10 @@
                 <tags>categoryTag:General</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_Ex_5-6QTEe2EWOeZBZzoXw" containerData="7500" selectedElement="_Ex_5_KQTEe2EWOeZBZzoXw" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_Ex_5-6QTEe2EWOeZBZzoXw" containerData="8635" selectedElement="_Ex_5_KQTEe2EWOeZBZzoXw" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_Ex_5_KQTEe2EWOeZBZzoXw" containerData="5000" selectedElement="_Ex_5_aQTEe2EWOeZBZzoXw">
-                <children xsi:type="advanced:Placeholder" xmi:id="_Ex_5_aQTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.editorss" containerData="4364" ref="_Ex_7_qQTEe2EWOeZBZzoXw"/>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_PHXWsKWREe2AHadbnLQfNg" containerData="5636" selectedElement="_Ex_5_qQTEe2EWOeZBZzoXw" horizontal="true">
+                <children xsi:type="advanced:Placeholder" xmi:id="_Ex_5_aQTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.editorss" containerData="9000" ref="_Ex_7_qQTEe2EWOeZBZzoXw"/>
+                <children xsi:type="basic:PartSashContainer" xmi:id="_PHXWsKWREe2AHadbnLQfNg" containerData="1000" selectedElement="_Ex_6B6QTEe2EWOeZBZzoXw" horizontal="true">
                   <children xsi:type="basic:PartStack" xmi:id="_Ex_5_qQTEe2EWOeZBZzoXw" elementId="bottom" containerData="5000" selectedElement="_Ex_6AaQTEe2EWOeZBZzoXw">
                     <children xsi:type="advanced:Placeholder" xmi:id="_Ex_5_6QTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.views.ProblemView" ref="_Ex_8JaQTEe2EWOeZBZzoXw" closeable="true">
                       <tags>View</tags>
@@ -216,8 +215,35 @@
       <children xsi:type="basic:PartStack" xmi:id="_Ex_7_6QTEe2EWOeZBZzoXw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_MvL-YKWREe2AHadbnLQfNg">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
+        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_MvL-YKWREe2AHadbnLQfNg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="main.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/main.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Src/main.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3561&quot; selectionTopPixel=&quot;2220&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/main.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Src/main.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1727&quot; selectionTopPixel=&quot;1240&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_xtFHYLrjEe2OJ8dCmGAkiQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="microprint.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.h&quot; partName=&quot;microprint.h&quot; title=&quot;microprint.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/microprint.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Inc/microprint.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;240&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_yqGwULrjEe2OJ8dCmGAkiQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="microprint.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;microprint.c&quot; partName=&quot;microprint.c&quot; title=&quot;microprint.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/microprint.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Src/microprint.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;754&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_5uVBALrjEe2OJ8dCmGAkiQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LowPassFilter.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.c&quot; partName=&quot;LowPassFilter.c&quot; title=&quot;LowPassFilter.c&quot; tooltip=&quot;Apollo - DSP/Core/Src/LowPassFilter.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Src/LowPassFilter.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;799&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_6Yaf0LrjEe2OJ8dCmGAkiQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LowPassFilter.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;LowPassFilter.h&quot; partName=&quot;LowPassFilter.h&quot; title=&quot;LowPassFilter.h&quot; tooltip=&quot;Apollo - DSP/Core/Inc/LowPassFilter.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Apollo - DSP/Core/Inc/LowPassFilter.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;201&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
@@ -230,8 +256,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.cdt.ui.cview.groupincludes=&quot;false&quot; org.eclipse.cdt.ui.cview.groupmacros=&quot;false&quot; org.eclipse.cdt.ui.editor.CUChildren=&quot;true&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_Ex_8CqQTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -365,7 +389,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ex_8haQTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jAOGR64-Ee2AddRMbaJpvA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_EyADhqQTEe2EWOeZBZzoXw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ainR8L6_Ee2BTd2W-akIGA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_EyADhqQTEe2EWOeZBZzoXw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ex_8laQTEe2EWOeZBZzoXw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -396,7 +420,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ex_83aQTEe2EWOeZBZzoXw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jAXQOa4-Ee2AddRMbaJpvA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_EyADK6QTEe2EWOeZBZzoXw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_aiqVQL6_Ee2BTd2W-akIGA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_EyADK6QTEe2EWOeZBZzoXw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ex_866QTEe2EWOeZBZzoXw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
