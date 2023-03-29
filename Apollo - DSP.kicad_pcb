@@ -3846,7 +3846,7 @@
       (net 2 "GND") (pinfunction "SHIELD") (pintype "passive") (tstamp 0520d68c-bdec-4d10-8756-c63de315da38))
     (pad "12" smd rect (at 6.945 4.825 90) (size 1.5 2) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 2 "GND") (pinfunction "SHIELD") (pintype "passive") (tstamp f6530a81-d443-4ea6-a0d7-1ecd59edde3f))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_Card.3dshapes/MEM2067-02-180-00-A--3DModel-STEP-56544.STEP"
+    (model "${KICAD7_3DMODEL_DIR}/Connector_Card.3dshapes/MEM2067-02-180-00-A--3DModel-STEP-56544.STEP"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -4876,8 +4876,6 @@
     )
   )
 
-  (gr_circle (center 51.9 78.1) (end 56.8 75.8)
-    (stroke (width 0.15) (type solid)) (fill none) (layer "F.Mask") (tstamp 7f3248a1-b341-4175-8c9c-0c8272a9767a))
   (gr_arc (start 122.8 119.2) (mid 127.042641 129.442641) (end 116.8 125.2)
     (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp 059b6cca-f4a7-4339-bb85-49a340be8b27))
   (gr_line (start 116.8 78.1) (end 57.9 78.1)
