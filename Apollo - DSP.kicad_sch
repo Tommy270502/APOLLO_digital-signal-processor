@@ -3301,23 +3301,6 @@
     )
   )
 
-  (sheet (at 76.2 177.8) (size 12.7 12.7) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid b5f9f6f7-e010-4310-8002-af6cdae92cea)
-    (property "Sheetname" "Memory" (at 76.2 177.0884 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "Memory.kicad_sch" (at 76.2 191.0846 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "Apollo - DSP"
-        (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55" (page "4"))
-      )
-    )
-  )
-
   (sheet_instances
     (path "/" (page "1"))
   )
