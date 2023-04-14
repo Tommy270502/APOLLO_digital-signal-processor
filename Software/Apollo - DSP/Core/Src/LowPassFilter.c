@@ -13,6 +13,14 @@ void init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletim
 	float RC = 1.00f / (6.28318531f * cutoffFreq);
 
 	//compute alpha coefficient
+
+	//make sure RC is minimum 2x sampletimeS (improves frequency response and performance)
+	float twoX = RC / sampletimeS;
+
+	if(twoX <= 2) {
+		RC = RC * (2 / twoX);
+	}
+
 	handle->alpha[0] = sampletimeS / (sampletimeS + RC);
 	//compute the inverse value of alpha coefficient
 	handle->alpha[1] = RC / (sampletimeS + RC);
