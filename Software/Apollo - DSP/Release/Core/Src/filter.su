@@ -1,0 +1,4 @@
+../Core/Src/filter.c:11:6:init_LowPassFilter	0	static
+../Core/Src/filter.c:33:6:update_LowPassFilter	0	static
+../Core/Src/filter.c:43:6:init_HighPassFilter	0	static
+../Core/Src/filter.c:65:6:update_HighPassFilter	0	static
