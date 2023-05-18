@@ -947,7 +947,7 @@
   (junction (at 53.34 172.72) (diameter 0) (color 0 0 0 0)
     (uuid 9982daa9-636a-4d2a-a086-6a4fc541f5a5)
   )
-  (junction (at 74.93 90.17) (diameter 0) (color 0 0 0 0)
+  (junction (at 66.04 87.63) (diameter 0) (color 0 0 0 0)
     (uuid 99aa030b-3f61-4799-b787-d10a7f06cd57)
   )
   (junction (at 109.22 34.29) (diameter 0) (color 0 0 0 0)
@@ -959,16 +959,16 @@
   (junction (at 119.38 34.29) (diameter 0) (color 0 0 0 0)
     (uuid ae07aabc-f388-4baf-9b4a-d079f3ff38a2)
   )
-  (junction (at 64.77 82.55) (diameter 0) (color 0 0 0 0)
+  (junction (at 55.88 80.01) (diameter 0) (color 0 0 0 0)
     (uuid cc7212d1-d979-49a1-8eeb-496ee7a09a38)
   )
   (junction (at 54.61 36.83) (diameter 0) (color 0 0 0 0)
     (uuid d1c6aaa2-8ee4-463b-ba03-8c42c6a90f7a)
   )
-  (junction (at 83.82 82.55) (diameter 0) (color 0 0 0 0)
+  (junction (at 74.93 80.01) (diameter 0) (color 0 0 0 0)
     (uuid d380db65-905d-4e46-af12-03fdc368732f)
   )
-  (junction (at 74.93 96.52) (diameter 0) (color 0 0 0 0)
+  (junction (at 66.04 93.98) (diameter 0) (color 0 0 0 0)
     (uuid d80d6193-a153-4cc9-a073-6de278b63def)
   )
   (junction (at 53.34 168.91) (diameter 0) (color 0 0 0 0)
@@ -986,10 +986,7 @@
   (no_connect (at 96.52 113.03) (uuid 1c4742b3-7b97-418d-9e6c-61b2ccdb8305))
   (no_connect (at 96.52 77.47) (uuid 27707313-341b-4e58-a6fe-8a844a651f41))
   (no_connect (at 96.52 87.63) (uuid 29a4494d-1b78-4da4-80b2-55e8bddb6d39))
-  (no_connect (at 129.54 102.87) (uuid 36917df7-3676-41d3-9bad-f9b5ac14445b))
-  (no_connect (at 96.52 90.17) (uuid 37bc13d2-8c79-4bc9-b22f-72ef3d439a92))
   (no_connect (at 96.52 120.65) (uuid 49ee101b-8ac7-43ad-866d-d41b291d9ec8))
-  (no_connect (at 129.54 100.33) (uuid 4a959c64-70a2-49e5-93b1-601eb166f23f))
   (no_connect (at 96.52 110.49) (uuid 5083bef4-e6bd-463d-b3cd-81e2928710bd))
   (no_connect (at 69.85 162.56) (uuid 61d38ddb-f7db-48e1-85fa-995c9e42fd73))
   (no_connect (at 96.52 54.61) (uuid 6d676a53-9558-4af6-8a21-f0e299640288))
@@ -1015,13 +1012,14 @@
   (no_connect (at 129.54 62.23) (uuid f4600d79-62c0-4852-abb1-c9599c4932e7))
   (no_connect (at 96.52 107.95) (uuid f75719fb-ebff-439f-851c-a4e06c80249c))
   (no_connect (at 129.54 120.65) (uuid f7eea992-308c-49ba-af1d-e1a1e75e3bad))
+  (no_connect (at 129.54 49.53) (uuid f7f54b6c-fa0d-4a5e-a524-08da7cb443ed))
 
   (bus_entry (at 203.2 10.16) (size 2.54 2.54)
     (stroke (width 0) (type default))
     (uuid fcf9a81d-c476-489e-8c66-d3a17244126b)
   )
 
-  (wire (pts (xy 64.77 93.98) (xy 64.77 96.52))
+  (wire (pts (xy 55.88 91.44) (xy 55.88 93.98))
     (stroke (width 0) (type default))
     (uuid 00147d5b-974f-49cf-a6f0-f5053f4c81cd)
   )
@@ -1037,11 +1035,11 @@
     (stroke (width 0) (type default))
     (uuid 01c6f5c0-917e-49fa-bc10-4a7cc8d2af68)
   )
-  (wire (pts (xy 74.93 80.01) (xy 74.93 77.47))
+  (wire (pts (xy 66.04 77.47) (xy 66.04 74.93))
     (stroke (width 0) (type default))
     (uuid 04993296-0e12-4170-9442-15e38b26749d)
   )
-  (wire (pts (xy 74.93 90.17) (xy 74.93 96.52))
+  (wire (pts (xy 66.04 87.63) (xy 66.04 93.98))
     (stroke (width 0) (type default))
     (uuid 054b92a8-257e-4ce6-8578-c36072795bb4)
   )
@@ -1077,7 +1075,7 @@
     (stroke (width 0) (type default))
     (uuid 1e80985b-8352-4203-8b6b-e583af2489e6)
   )
-  (wire (pts (xy 69.85 77.47) (xy 74.93 77.47))
+  (wire (pts (xy 60.96 74.93) (xy 66.04 74.93))
     (stroke (width 0) (type default))
     (uuid 200bfe8e-26e4-4da3-9439-cf51753c7169)
   )
@@ -1109,7 +1107,7 @@
     (stroke (width 0) (type default))
     (uuid 312691d3-48ed-43e0-a8d2-f2f11bce99af)
   )
-  (wire (pts (xy 83.82 73.66) (xy 83.82 82.55))
+  (wire (pts (xy 74.93 71.12) (xy 74.93 80.01))
     (stroke (width 0) (type default))
     (uuid 31c640fa-22b8-4da5-8fdb-e6e16bd6b26a)
   )
@@ -1153,7 +1151,7 @@
     (stroke (width 0) (type default))
     (uuid 50fdc28b-714f-4001-a648-adf3a3970b92)
   )
-  (wire (pts (xy 74.93 96.52) (xy 83.82 96.52))
+  (wire (pts (xy 66.04 93.98) (xy 74.93 93.98))
     (stroke (width 0) (type default))
     (uuid 52877a58-93e4-4446-bf51-2d6ec5f6f651)
   )
@@ -1165,7 +1163,7 @@
     (stroke (width 0) (type default))
     (uuid 565abcbc-e5bd-4cac-8ce6-cbdcf2daeece)
   )
-  (wire (pts (xy 64.77 73.66) (xy 64.77 82.55))
+  (wire (pts (xy 55.88 71.12) (xy 55.88 80.01))
     (stroke (width 0) (type default))
     (uuid 5a51d97c-98d1-4d61-926b-56b901bb2c81)
   )
@@ -1189,7 +1187,7 @@
     (stroke (width 0) (type default))
     (uuid 68854153-3879-4298-8e04-495b15b63e09)
   )
-  (wire (pts (xy 140.97 63.5) (xy 140.97 64.77))
+  (wire (pts (xy 86.36 106.68) (xy 86.36 107.95))
     (stroke (width 0) (type default))
     (uuid 6cbf861f-cdb0-4fa3-84e4-0d1f1981ac5e)
   )
@@ -1205,11 +1203,11 @@
     (stroke (width 0) (type default))
     (uuid 73a9a381-2c96-4da8-a4d8-609cc43f2476)
   )
-  (wire (pts (xy 83.82 82.55) (xy 83.82 88.9))
+  (wire (pts (xy 74.93 80.01) (xy 74.93 86.36))
     (stroke (width 0) (type default))
     (uuid 74bae416-dc21-44a8-a00e-737d4af3c9bd)
   )
-  (wire (pts (xy 64.77 82.55) (xy 64.77 88.9))
+  (wire (pts (xy 55.88 80.01) (xy 55.88 86.36))
     (stroke (width 0) (type default))
     (uuid 7655ff38-9372-4a70-8843-2658f14b5c4d)
   )
@@ -1237,6 +1235,10 @@
     (stroke (width 0) (type default))
     (uuid 7c4577a2-8bfb-400d-9084-b51bec6f0493)
   )
+  (wire (pts (xy 96.52 90.17) (xy 86.36 90.17))
+    (stroke (width 0) (type default))
+    (uuid 7c6e3204-28c2-4934-948e-4891fa91f755)
+  )
   (wire (pts (xy 214.63 121.92) (xy 214.63 123.19))
     (stroke (width 0) (type default))
     (uuid 80722c3d-b24b-4fed-b56f-0512f7cb4e97)
@@ -1253,11 +1255,11 @@
     (stroke (width 0) (type default))
     (uuid 85bb2fee-5eb0-440c-891e-8e906a31d9fe)
   )
-  (wire (pts (xy 83.82 96.52) (xy 83.82 93.98))
+  (wire (pts (xy 74.93 93.98) (xy 74.93 91.44))
     (stroke (width 0) (type default))
     (uuid 881f3f11-7aa7-4466-b979-52ba7946ddc9)
   )
-  (wire (pts (xy 77.47 82.55) (xy 83.82 82.55))
+  (wire (pts (xy 68.58 80.01) (xy 74.93 80.01))
     (stroke (width 0) (type default))
     (uuid 90e2e2ea-8d06-41ab-93df-89f1fed907f3)
   )
@@ -1281,7 +1283,7 @@
     (stroke (width 0) (type default))
     (uuid a0bda021-e450-4da2-bfce-2fccb0dfa942)
   )
-  (wire (pts (xy 69.85 90.17) (xy 74.93 90.17))
+  (wire (pts (xy 60.96 87.63) (xy 66.04 87.63))
     (stroke (width 0) (type default))
     (uuid a84fdd3f-bf56-477b-b44d-55b8090caeee)
   )
@@ -1297,7 +1299,7 @@
     (stroke (width 0) (type default))
     (uuid ae2d5f76-23dd-40a5-b83f-d046e025678e)
   )
-  (wire (pts (xy 140.97 52.07) (xy 140.97 49.53))
+  (wire (pts (xy 86.36 90.17) (xy 86.36 95.25))
     (stroke (width 0) (type default))
     (uuid b14db08e-38f7-4c42-8a44-d52f3ffb9342)
   )
@@ -1329,7 +1331,7 @@
     (stroke (width 0) (type default))
     (uuid c2f5e218-e00c-4bd5-9757-66207e7306c0)
   )
-  (wire (pts (xy 64.77 96.52) (xy 74.93 96.52))
+  (wire (pts (xy 55.88 93.98) (xy 66.04 93.98))
     (stroke (width 0) (type default))
     (uuid c53302db-0496-4b2e-a404-994538b4ae25)
   )
@@ -1397,7 +1399,7 @@
     (stroke (width 0) (type default))
     (uuid d9db3066-bc09-47d9-8d92-96411a7ee070)
   )
-  (wire (pts (xy 74.93 85.09) (xy 74.93 90.17))
+  (wire (pts (xy 66.04 82.55) (xy 66.04 87.63))
     (stroke (width 0) (type default))
     (uuid db0ee890-5c9c-4834-8ca4-1ab74f8f5e6a)
   )
@@ -1409,7 +1411,7 @@
     (stroke (width 0) (type default))
     (uuid e492e1e9-2990-4601-b668-785f9f09fb23)
   )
-  (wire (pts (xy 74.93 99.06) (xy 74.93 96.52))
+  (wire (pts (xy 66.04 96.52) (xy 66.04 93.98))
     (stroke (width 0) (type default))
     (uuid e4add989-3502-4243-878f-d4babef5c9f6)
   )
@@ -1437,11 +1439,11 @@
     (stroke (width 0) (type default))
     (uuid f6c7fb0c-f3b7-4e01-bbfa-e42835203d23)
   )
-  (wire (pts (xy 64.77 82.55) (xy 72.39 82.55))
+  (wire (pts (xy 55.88 80.01) (xy 63.5 80.01))
     (stroke (width 0) (type default))
     (uuid f8306db3-f709-4521-8fa8-b47a40a1853a)
   )
-  (wire (pts (xy 69.85 77.47) (xy 69.85 90.17))
+  (wire (pts (xy 60.96 74.93) (xy 60.96 87.63))
     (stroke (width 0) (type default))
     (uuid f8b2afd8-3852-436c-8ceb-b7ba416b3b9f)
   )
@@ -1449,13 +1451,9 @@
     (stroke (width 0) (type default))
     (uuid f8c3c64d-fe9c-4d15-93b4-a46c40d058cf)
   )
-  (wire (pts (xy 140.97 57.15) (xy 140.97 58.42))
+  (wire (pts (xy 86.36 100.33) (xy 86.36 101.6))
     (stroke (width 0) (type default))
     (uuid fccb435c-d913-4007-a232-3e99ee08bd0b)
-  )
-  (wire (pts (xy 129.54 49.53) (xy 140.97 49.53))
-    (stroke (width 0) (type default))
-    (uuid fdf4cf9f-47c1-45fc-b2c3-b7ad1fc77f0a)
   )
 
   (global_label "BOOT0" (shape input) (at 39.37 40.64 0) (fields_autoplaced)
@@ -1479,10 +1477,10 @@
       (effects (font (size 1 1)) (justify right) hide)
     )
   )
-  (global_label "X1" (shape input) (at 64.77 73.66 90) (fields_autoplaced)
+  (global_label "X1" (shape input) (at 55.88 71.12 90) (fields_autoplaced)
     (effects (font (size 1 1)) (justify left))
     (uuid 148ce12d-800a-4b64-954f-faccbc7817de)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 64.7075 69.8552 90)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 55.8175 67.3152 90)
       (effects (font (size 1 1)) (justify left) hide)
     )
   )
@@ -1549,10 +1547,10 @@
       (effects (font (size 1 1)) (justify left) hide)
     )
   )
-  (global_label "X2" (shape input) (at 83.82 73.66 90) (fields_autoplaced)
+  (global_label "X2" (shape input) (at 74.93 71.12 90) (fields_autoplaced)
     (effects (font (size 1 1)) (justify left))
     (uuid 4432672d-4b51-4459-ab92-07d4b1bf3961)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 83.7575 69.8552 90)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 74.8675 67.3152 90)
       (effects (font (size 1 1)) (justify left) hide)
     )
   )
@@ -1619,6 +1617,13 @@
       (effects (font (size 1 1)) (justify right) hide)
     )
   )
+  (global_label "SCL" (shape input) (at 129.54 100.33 0) (fields_autoplaced)
+    (effects (font (size 1 1)) (justify left))
+    (uuid c0389315-75ca-4c4c-8641-33a0001fb333)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 134.5898 100.33 0)
+      (effects (font (size 1 1)) (justify left) hide)
+    )
+  )
   (global_label "Tx" (shape input) (at 129.54 64.77 0) (fields_autoplaced)
     (effects (font (size 1 1)) (justify left))
     (uuid ca071cf9-2cda-4cd9-b8cb-daab2c130cda)
@@ -1682,6 +1687,13 @@
       (effects (font (size 1 1)) (justify right) hide)
     )
   )
+  (global_label "SDA" (shape input) (at 129.54 102.87 0) (fields_autoplaced)
+    (effects (font (size 1 1)) (justify left))
+    (uuid f5ca4cd6-1acb-4242-b310-930ca8751884)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 134.6374 102.87 0)
+      (effects (font (size 1 1)) (justify left) hide)
+    )
+  )
   (global_label "MISO" (shape input) (at 69.85 157.48 180) (fields_autoplaced)
     (effects (font (size 1 1)) (justify right))
     (uuid f74127f5-78a5-4522-b0b5-9e7f04a37c7e)
@@ -1697,19 +1709,19 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 83.82 91.44 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 74.93 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 008e0d82-04bc-4311-82e5-5681d58dd86c)
-    (property "Reference" "C21" (at 81.032 89.5818 0)
+    (property "Reference" "C25" (at 72.142 87.0418 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10p" (at 81.28 96.52 90)
+    (property "Value" "10p" (at 72.39 93.98 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 83.82 91.44 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 74.93 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 83.82 91.44 0)
+    (property "Datasheet" "~" (at 74.93 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 80a69602-b640-4be1-8f79-b16f62b02208))
@@ -1717,7 +1729,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C21") (unit 1)
+          (reference "C25") (unit 1)
         )
       )
     )
@@ -1726,7 +1738,7 @@
   (symbol (lib_id "Device:C_Small") (at 30.48 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 03bed78a-99f6-4d7a-9f90-f79bf5972483)
-    (property "Reference" "C5" (at 27.692 43.8618 0)
+    (property "Reference" "C?" (at 27.692 43.8618 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 27.94 50.8 90)
@@ -1743,12 +1755,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "C5") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C38") (unit 1)
+          (reference "C22") (unit 1)
         )
       )
     )
@@ -1757,7 +1769,7 @@
   (symbol (lib_id "power:GND") (at 167.64 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 07176223-5adc-49be-92c7-bba635dcd829)
-    (property "Reference" "#PWR0134" (at 167.64 50.8 0)
+    (property "Reference" "#PWR036" (at 167.64 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 167.64 49.53 0)
@@ -1773,7 +1785,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0134") (unit 1)
+          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -1782,7 +1794,7 @@
   (symbol (lib_id "Device:R_Small") (at 54.61 31.75 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 09439c08-f71a-4fbb-a9fc-84a42c22278e)
-    (property "Reference" "R6" (at 55.88 30.48 0)
+    (property "Reference" "R?" (at 55.88 30.48 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 55.88 33.02 0)
@@ -1799,12 +1811,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "R6") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "R8") (unit 1)
+          (reference "R6") (unit 1)
         )
       )
     )
@@ -1813,7 +1825,7 @@
   (symbol (lib_id "Device:C_Small") (at 48.26 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0b80f18b-cac1-45c1-9ff5-cfbb76264c51)
-    (property "Reference" "C22" (at 44.45 163.83 0)
+    (property "Reference" "C27" (at 44.45 163.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 43.18 166.37 0)
@@ -1830,25 +1842,25 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C22") (unit 1)
+          (reference "C27") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:Crystal_GND24_Small") (at 74.93 82.55 0) (unit 1)
+  (symbol (lib_id "Device:Crystal_GND24_Small") (at 66.04 80.01 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 12a2e309-94ba-47b4-a076-bcf7f0bbcc58)
-    (property "Reference" "Y1" (at 72.39 86.36 0)
+    (property "Reference" "Y1" (at 63.5 83.82 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "16MHz" (at 77.47 86.36 90)
+    (property "Value" "16MHz" (at 68.58 83.82 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm" (at 74.93 82.55 0)
+    (property "Footprint" "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm" (at 66.04 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 74.93 82.55 0)
+    (property "Datasheet" "~" (at 66.04 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 4b59b51f-2a8a-4222-a8cc-83a8fb8dfa79))
@@ -1867,7 +1879,7 @@
   (symbol (lib_id "power:GND") (at 214.63 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 12e29dbc-19cd-481e-bd3a-433fccf8ea58)
-    (property "Reference" "#PWR0145" (at 214.63 114.3 0)
+    (property "Reference" "#PWR048" (at 214.63 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 214.63 113.03 0)
@@ -1883,25 +1895,25 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0145") (unit 1)
+          (reference "#PWR048") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 64.77 91.44 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 55.88 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 17942411-3398-4210-8b26-6dfa88c48854)
-    (property "Reference" "C20" (at 61.982 89.5818 0)
+    (property "Reference" "C24" (at 53.092 87.0418 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10p" (at 62.23 96.52 90)
+    (property "Value" "10p" (at 53.34 93.98 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 64.77 91.44 0)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 55.88 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 64.77 91.44 0)
+    (property "Datasheet" "~" (at 55.88 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 901b0102-1a61-48b7-badc-24250a2a44ed))
@@ -1909,25 +1921,25 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C20") (unit 1)
+          (reference "C24") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:LED_Small") (at 140.97 60.96 90) (unit 1)
+  (symbol (lib_id "Device:LED_Small") (at 86.36 104.14 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1cc1ce1d-f519-42d1-b2da-bff8233321ab)
-    (property "Reference" "D2" (at 143.51 59.6264 90)
+    (property "Reference" "D2" (at 88.9 102.8064 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "Green" (at 143.51 62.1664 90)
+    (property "Value" "Green" (at 88.9 105.3464 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" (at 140.97 60.96 90)
+    (property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" (at 86.36 104.14 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 140.97 60.96 90)
+    (property "Datasheet" "~" (at 86.36 104.14 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 67c3d8ee-a3ec-43df-80b4-663937832727))
@@ -1944,7 +1956,7 @@
   (symbol (lib_id "Device:C_Small") (at 177.8 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 25e7542e-3e79-41f4-8392-4594a36e428d)
-    (property "Reference" "C18" (at 175.012 38.7818 0)
+    (property "Reference" "C19" (at 175.012 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 175.26 45.72 90)
@@ -1961,7 +1973,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C18") (unit 1)
+          (reference "C19") (unit 1)
         )
       )
     )
@@ -1970,7 +1982,7 @@
   (symbol (lib_id "Device:C_Small") (at 167.64 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 266af274-c0da-4807-ab73-8adcb1915230)
-    (property "Reference" "C16" (at 164.852 38.7818 0)
+    (property "Reference" "C17" (at 164.852 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 165.1 45.72 90)
@@ -1987,7 +1999,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C16") (unit 1)
+          (reference "C17") (unit 1)
         )
       )
     )
@@ -1996,7 +2008,7 @@
   (symbol (lib_id "power:GND") (at 30.48 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2aae4ed8-3aca-4d23-bd4a-6e726cc3f455)
-    (property "Reference" "#PWR0125" (at 30.48 55.88 0)
+    (property "Reference" "#PWR?" (at 30.48 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 30.48 54.61 0)
@@ -2012,12 +2024,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0125") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR040") (unit 1)
         )
       )
     )
@@ -2026,7 +2038,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 30.48 34.29 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2d057de8-dc5c-4637-97ef-78441b9efdd6)
-    (property "Reference" "BOOT0" (at 31.75 33.0199 90)
+    (property "Reference" "BOOT?" (at 31.75 33.0199 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "BOOT0" (at 31.75 35.5599 90)
@@ -2043,7 +2055,7 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "BOOT0") (unit 1)
+          (reference "BOOT?") (unit 1)
         )
       )
       (project "Apollo - DSP"
@@ -2057,7 +2069,7 @@
   (symbol (lib_id "Device:C_Small") (at 185.42 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3e50ff4b-9cb2-4617-b366-5c378068629c)
-    (property "Reference" "C25" (at 182.88 115.57 90)
+    (property "Reference" "C26" (at 182.88 115.57 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 182.88 120.65 90)
@@ -2074,7 +2086,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C25") (unit 1)
+          (reference "C26") (unit 1)
         )
       )
     )
@@ -2083,7 +2095,7 @@
   (symbol (lib_id "MEM2067-02-180-00-A_REVB:MEM2067-02-180-00-A_REVB") (at 74.93 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4c7fa448-df8a-45da-88b4-dbce6d7f5eed)
-    (property "Reference" "J3" (at 95.25 165.0999 0)
+    (property "Reference" "J4" (at 95.25 165.0999 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "MEM2067-02-180-00-A_REVB" (at 95.25 167.6399 0)
@@ -2113,7 +2125,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "J3") (unit 1)
+          (reference "J4") (unit 1)
         )
       )
     )
@@ -2122,7 +2134,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 60.96 43.18 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4d7b4aaa-7c4b-409d-ab5f-2ad0b3cd027c)
-    (property "Reference" "RESET1" (at 62.23 41.9099 90)
+    (property "Reference" "RESET?" (at 62.23 41.9099 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "RST" (at 62.23 44.4499 90)
@@ -2139,7 +2151,7 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "RESET1") (unit 1)
+          (reference "RESET?") (unit 1)
         )
       )
       (project "Apollo - DSP"
@@ -2153,7 +2165,7 @@
   (symbol (lib_id "power:+3.3V") (at 109.22 30.48 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 519f522b-ea31-4f1f-8c05-b2a2db654158)
-    (property "Reference" "#PWR0141" (at 109.22 34.29 0)
+    (property "Reference" "#PWR033" (at 109.22 34.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 109.22 25.4 0)
@@ -2169,7 +2181,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0141") (unit 1)
+          (reference "#PWR033") (unit 1)
         )
       )
     )
@@ -2178,7 +2190,7 @@
   (symbol (lib_id "power:+3.3V") (at 54.61 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 523f4106-bd73-4b65-8e2d-78c0bfb98d13)
-    (property "Reference" "#PWR0111" (at 54.61 31.75 0)
+    (property "Reference" "#PWR?" (at 54.61 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 54.61 24.13 0)
@@ -2194,12 +2206,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0111") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR032") (unit 1)
         )
       )
     )
@@ -2208,7 +2220,7 @@
   (symbol (lib_id "power:GND") (at 185.42 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5b61d2db-f198-444f-b757-58611b9b1480)
-    (property "Reference" "#PWR010" (at 185.42 128.27 0)
+    (property "Reference" "#PWR051" (at 185.42 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 185.42 127 0)
@@ -2224,7 +2236,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
       )
     )
@@ -2233,7 +2245,7 @@
   (symbol (lib_id "Device:C_Small") (at 157.48 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 61db5632-2d6c-4fc4-a5fa-3f3f239fcf8f)
-    (property "Reference" "C14" (at 154.692 38.7818 0)
+    (property "Reference" "C15" (at 154.692 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 154.94 45.72 90)
@@ -2250,7 +2262,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C14") (unit 1)
+          (reference "C15") (unit 1)
         )
       )
     )
@@ -2259,7 +2271,7 @@
   (symbol (lib_id "power:GND") (at 114.3 129.54 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 63458d6b-95db-40a6-9898-1f3d50d6961a)
-    (property "Reference" "#PWR0171" (at 114.3 135.89 0)
+    (property "Reference" "#PWR053" (at 114.3 135.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 114.3 134.62 0)
@@ -2275,7 +2287,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0171") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
       )
     )
@@ -2284,7 +2296,7 @@
   (symbol (lib_id "Device:C_Small") (at 54.61 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 68ff1f70-1685-473d-afcc-e9033c2fbd28)
-    (property "Reference" "C7" (at 51.822 41.3218 0)
+    (property "Reference" "C?" (at 51.822 41.3218 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 52.07 48.26 90)
@@ -2301,12 +2313,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "C7") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C37") (unit 1)
+          (reference "C21") (unit 1)
         )
       )
     )
@@ -2315,7 +2327,7 @@
   (symbol (lib_id "power:GND") (at 182.88 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6b3db86b-2f0e-447b-989b-88682cf5e84c)
-    (property "Reference" "#PWR0140" (at 182.88 50.8 0)
+    (property "Reference" "#PWR039" (at 182.88 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 182.88 49.53 0)
@@ -2331,7 +2343,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0140") (unit 1)
+          (reference "#PWR039") (unit 1)
         )
       )
     )
@@ -2340,7 +2352,7 @@
   (symbol (lib_id "power:GND") (at 157.48 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 763a221c-d3ac-4a86-b75c-83611f26cd13)
-    (property "Reference" "#PWR0138" (at 157.48 50.8 0)
+    (property "Reference" "#PWR034" (at 157.48 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 157.48 49.53 0)
@@ -2356,7 +2368,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0138") (unit 1)
+          (reference "#PWR034") (unit 1)
         )
       )
     )
@@ -2365,7 +2377,7 @@
   (symbol (lib_id "power:GND") (at 60.96 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8116500e-7673-48fc-ae07-caf92eef625f)
-    (property "Reference" "#PWR0112" (at 60.96 55.88 0)
+    (property "Reference" "#PWR?" (at 60.96 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 60.96 54.61 0)
@@ -2381,12 +2393,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0112") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR043") (unit 1)
         )
       )
     )
@@ -2395,7 +2407,7 @@
   (symbol (lib_id "power:+3.3V") (at 214.63 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 831211f0-7823-460f-ae62-2c2d53a41047)
-    (property "Reference" "#PWR0147" (at 214.63 101.6 0)
+    (property "Reference" "#PWR046" (at 214.63 101.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 214.63 92.71 0)
@@ -2411,7 +2423,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0147") (unit 1)
+          (reference "#PWR046") (unit 1)
         )
       )
     )
@@ -2420,7 +2432,7 @@
   (symbol (lib_id "Device:C_Small") (at 172.72 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8925ce6f-b58e-4c07-9e05-1822a38c5c3a)
-    (property "Reference" "C17" (at 169.932 38.7818 0)
+    (property "Reference" "C18" (at 169.932 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 170.18 45.72 90)
@@ -2437,7 +2449,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C17") (unit 1)
+          (reference "C18") (unit 1)
         )
       )
     )
@@ -2446,7 +2458,7 @@
   (symbol (lib_id "Device:C_Small") (at 92.71 55.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8b8927f1-9889-4856-8169-8c41bf695261)
-    (property "Reference" "C36" (at 87.63 54.61 0)
+    (property "Reference" "C23" (at 87.63 54.61 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 87.63 57.15 0)
@@ -2463,7 +2475,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C36") (unit 1)
+          (reference "C23") (unit 1)
         )
       )
     )
@@ -2472,7 +2484,7 @@
   (symbol (lib_id "power:+3.3V") (at 162.56 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8c36b2d4-67fe-4a65-a0bb-8bb440548c67)
-    (property "Reference" "#PWR011" (at 162.56 113.03 0)
+    (property "Reference" "#PWR049" (at 162.56 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 162.56 104.14 0)
@@ -2488,25 +2500,25 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR049") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:R_Small") (at 140.97 54.61 0) (unit 1)
+  (symbol (lib_id "Device:R_Small") (at 86.36 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 97de8ef3-14f6-43c9-8a71-6e4c43b033a3)
-    (property "Reference" "R7" (at 142.24 53.34 0)
+    (property "Reference" "R8" (at 87.63 96.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "300" (at 142.24 55.88 0)
+    (property "Value" "300" (at 87.63 99.06 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 140.97 54.61 0)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 86.36 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 140.97 54.61 0)
+    (property "Datasheet" "~" (at 86.36 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 964f935c-afb2-4a43-bda6-07fefb97b267))
@@ -2514,32 +2526,32 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "R7") (unit 1)
+          (reference "R8") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "power:GND") (at 74.93 99.06 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 66.04 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 992a9f00-5db9-4710-b83c-2f47626f1afc)
-    (property "Reference" "#PWR0144" (at 74.93 105.41 0)
+    (property "Reference" "#PWR047" (at 66.04 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 74.93 104.14 0)
+    (property "Value" "GND" (at 66.04 101.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 74.93 99.06 0)
+    (property "Footprint" "" (at 66.04 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 74.93 99.06 0)
+    (property "Datasheet" "" (at 66.04 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 1d17751f-3c26-4702-a49c-20a4ef78cbdb))
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0144") (unit 1)
+          (reference "#PWR047") (unit 1)
         )
       )
     )
@@ -2548,7 +2560,7 @@
   (symbol (lib_id "power:GND") (at 53.34 179.07 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9a3fd2e4-ee69-44a3-92ce-be706ddc8e33)
-    (property "Reference" "#PWR08" (at 53.34 185.42 0)
+    (property "Reference" "#PWR056" (at 53.34 185.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 53.34 182.88 0)
@@ -2564,7 +2576,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR056") (unit 1)
         )
       )
     )
@@ -2573,7 +2585,7 @@
   (symbol (lib_id "power:GND") (at 36.83 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9c1bc9c6-0efa-403d-919f-76d844683386)
-    (property "Reference" "#PWR0124" (at 36.83 55.88 0)
+    (property "Reference" "#PWR?" (at 36.83 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 36.83 54.61 0)
@@ -2589,12 +2601,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0124") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR041") (unit 1)
         )
       )
     )
@@ -2603,7 +2615,7 @@
   (symbol (lib_id "power:+3.3V") (at 185.42 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9cae33d8-8e9b-410b-8524-28f220cc2d5f)
-    (property "Reference" "#PWR09" (at 185.42 113.03 0)
+    (property "Reference" "#PWR050" (at 185.42 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 185.42 104.14 0)
@@ -2619,7 +2631,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -2628,7 +2640,7 @@
   (symbol (lib_id "power:GND") (at 177.8 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a04b991f-cd77-428a-a414-414ecec4aacb)
-    (property "Reference" "#PWR0139" (at 177.8 50.8 0)
+    (property "Reference" "#PWR038" (at 177.8 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 177.8 49.53 0)
@@ -2644,7 +2656,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0139") (unit 1)
+          (reference "#PWR038") (unit 1)
         )
       )
     )
@@ -2653,7 +2665,7 @@
   (symbol (lib_id "power:GND") (at 162.56 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a2c5bbf1-59dd-4b85-a590-1be962affef9)
-    (property "Reference" "#PWR0137" (at 162.56 50.8 0)
+    (property "Reference" "#PWR035" (at 162.56 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 162.56 49.53 0)
@@ -2669,7 +2681,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0137") (unit 1)
+          (reference "#PWR035") (unit 1)
         )
       )
     )
@@ -2678,7 +2690,7 @@
   (symbol (lib_id "Device:C_Small") (at 53.34 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a41f4a0d-e6bc-47a7-b937-fc0ba1d184ba)
-    (property "Reference" "C30" (at 54.61 163.83 0)
+    (property "Reference" "C28" (at 54.61 163.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 54.61 166.37 0)
@@ -2695,7 +2707,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C30") (unit 1)
+          (reference "C28") (unit 1)
         )
       )
     )
@@ -2704,7 +2716,7 @@
   (symbol (lib_id "Device:C_Small") (at 162.56 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a4a59d4d-55f0-4107-9d4d-94de3e37a2ea)
-    (property "Reference" "C15" (at 159.772 38.7818 0)
+    (property "Reference" "C16" (at 159.772 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100n" (at 160.02 45.72 90)
@@ -2721,7 +2733,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C15") (unit 1)
+          (reference "C16") (unit 1)
         )
       )
     )
@@ -2730,7 +2742,7 @@
   (symbol (lib_id "power:+3.3V") (at 30.48 27.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a54a9a33-b603-4124-baf4-71389005db9d)
-    (property "Reference" "#PWR0114" (at 30.48 31.75 0)
+    (property "Reference" "#PWR?" (at 30.48 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 30.48 24.13 0)
@@ -2746,12 +2758,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0114") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR01") (unit 1)
+          (reference "#PWR031") (unit 1)
         )
       )
     )
@@ -2760,7 +2772,7 @@
   (symbol (lib_id "power:GND") (at 214.63 132.08 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c0ef0d25-44b7-48a6-a2be-3235e304b6a1)
-    (property "Reference" "#PWR0113" (at 214.63 138.43 0)
+    (property "Reference" "#PWR054" (at 214.63 138.43 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 214.63 137.16 0)
@@ -2776,7 +2788,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0113") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -2785,7 +2797,7 @@
   (symbol (lib_id "Device:C_Small") (at 182.88 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c4f1484e-18e4-4578-84cc-98d251a0e3de)
-    (property "Reference" "C19" (at 180.092 38.7818 0)
+    (property "Reference" "C20" (at 180.092 38.7818 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10u" (at 180.34 45.72 90)
@@ -2802,7 +2814,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "C19") (unit 1)
+          (reference "C20") (unit 1)
         )
       )
     )
@@ -2811,7 +2823,7 @@
   (symbol (lib_id "power:GND") (at 54.61 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c98f4bdb-9f14-4a25-a195-42f4faf18eca)
-    (property "Reference" "#PWR0113" (at 54.61 55.88 0)
+    (property "Reference" "#PWR?" (at 54.61 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 54.61 54.61 0)
@@ -2827,12 +2839,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "#PWR0113") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR042") (unit 1)
         )
       )
     )
@@ -2841,7 +2853,7 @@
   (symbol (lib_id "power:GND") (at 172.72 44.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d1801186-f4d1-4d2d-95fa-83012d443a97)
-    (property "Reference" "#PWR0135" (at 172.72 50.8 0)
+    (property "Reference" "#PWR037" (at 172.72 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 172.72 49.53 0)
@@ -2857,7 +2869,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0135") (unit 1)
+          (reference "#PWR037") (unit 1)
         )
       )
     )
@@ -2866,7 +2878,7 @@
   (symbol (lib_id "power:GND") (at 92.71 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d2609794-d629-4236-99da-9c672cbab438)
-    (property "Reference" "#PWR0172" (at 92.71 66.04 0)
+    (property "Reference" "#PWR044" (at 92.71 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 92.71 64.77 0)
@@ -2882,7 +2894,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0172") (unit 1)
+          (reference "#PWR044") (unit 1)
         )
       )
     )
@@ -2891,7 +2903,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 220.98 125.73 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d586fbc2-9a3b-468f-a723-af3b2102045c)
-    (property "Reference" "J5" (at 223.52 125.7299 0)
+    (property "Reference" "J3" (at 223.52 125.7299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x04" (at 223.52 128.2699 0)
@@ -2910,7 +2922,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "J5") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
@@ -2919,7 +2931,7 @@
   (symbol (lib_id "Device:R_Small") (at 36.83 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid da9a9c93-1a7c-4f4d-b178-4c30bd6e2f8c)
-    (property "Reference" "R4" (at 38.1 44.45 0)
+    (property "Reference" "R?" (at 38.1 44.45 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 38.1 46.99 0)
@@ -2936,12 +2948,12 @@
     (instances
       (project "STM32F103 devboard"
         (path "/7cd8109f-5f99-46a5-9e32-14f7754144db"
-          (reference "R4") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "R13") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -3010,7 +3022,7 @@
   (symbol (lib_id "power:+3.3V") (at 53.34 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e992fce7-0524-42c2-9c51-d06b908cb3df)
-    (property "Reference" "#PWR07" (at 53.34 156.21 0)
+    (property "Reference" "#PWR055" (at 53.34 156.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 53.34 147.32 0)
@@ -3026,7 +3038,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -3123,7 +3135,7 @@
   (symbol (lib_id "power:+3.3V") (at 214.63 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ee3e3ad2-33bf-4fdd-b41f-f05f1357580a)
-    (property "Reference" "#PWR0169" (at 214.63 125.73 0)
+    (property "Reference" "#PWR052" (at 214.63 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 214.63 116.84 0)
@@ -3139,32 +3151,32 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0169") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "power:GND") (at 140.97 64.77 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 86.36 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fabd7269-9217-486e-a02b-0676fef47434)
-    (property "Reference" "#PWR0142" (at 140.97 71.12 0)
+    (property "Reference" "#PWR045" (at 86.36 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 140.97 68.58 0)
+    (property "Value" "GND" (at 86.36 111.76 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 140.97 64.77 0)
+    (property "Footprint" "" (at 86.36 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 140.97 64.77 0)
+    (property "Datasheet" "" (at 86.36 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 20589db6-c594-4a66-b3b9-54e0d50a9117))
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR0142") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
       )
     )
