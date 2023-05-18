@@ -2535,7 +2535,7 @@
   (symbol (lib_id "power:GND") (at 66.04 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 992a9f00-5db9-4710-b83c-2f47626f1afc)
-    (property "Reference" "#PWR047" (at 66.04 102.87 0)
+    (property "Reference" "#PWR045" (at 66.04 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 66.04 101.6 0)
@@ -2551,7 +2551,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
       )
     )
@@ -3160,7 +3160,7 @@
   (symbol (lib_id "power:GND") (at 86.36 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fabd7269-9217-486e-a02b-0676fef47434)
-    (property "Reference" "#PWR045" (at 86.36 114.3 0)
+    (property "Reference" "#PWR047" (at 86.36 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 86.36 111.76 0)
@@ -3176,7 +3176,7 @@
     (instances
       (project "Apollo - DSP"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/65c41d2a-7921-40f6-8a66-43d43155f96a"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR047") (unit 1)
         )
       )
     )
