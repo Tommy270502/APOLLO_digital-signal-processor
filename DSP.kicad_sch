@@ -1016,6 +1016,11 @@
   (no_connect (at 96.52 107.95) (uuid f75719fb-ebff-439f-851c-a4e06c80249c))
   (no_connect (at 129.54 120.65) (uuid f7eea992-308c-49ba-af1d-e1a1e75e3bad))
 
+  (bus_entry (at 203.2 10.16) (size 2.54 2.54)
+    (stroke (width 0) (type default))
+    (uuid fcf9a81d-c476-489e-8c66-d3a17244126b)
+  )
+
   (wire (pts (xy 64.77 93.98) (xy 64.77 96.52))
     (stroke (width 0) (type default))
     (uuid 00147d5b-974f-49cf-a6f0-f5053f4c81cd)
