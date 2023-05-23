@@ -12,13 +12,18 @@
 #define PAGESIZE	32
 #define I_READ		3
 #define I_WRITE		2
+#define WRSR		1
+#define RFSR		5
+
+#define MEM_TEST_V1 0xAA
+#define MEM_TEST_V2 0x55
 
 void testRAM(SPI_HandleTypeDef *spi);
 
 void writeByteRAM(SPI_HandleTypeDef *spi, uint16_t address, uint8_t data);
 void writePageRAM(SPI_HandleTypeDef *spi, uint16_t address, uint16_t pages, uint8_t data);
 
-void readByteRAM(SPI_HandleTypeDef *spi, uint16_t address);
+uint8_t readByteRAM(SPI_HandleTypeDef *spi, uint16_t address);
 void readPageRAM(SPI_HandleTypeDef *spi, uint16_t address, uint16_t pages);
 
 
