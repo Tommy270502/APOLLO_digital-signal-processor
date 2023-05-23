@@ -11,13 +11,6 @@
 typedef struct {
 
 	float alpha[2];
-	float out[2];
-
-}LowPassFilter;
-
-typedef struct {
-
-	float alpha[2];
 	float input[2];
 	float out[2];
 
@@ -26,7 +19,15 @@ typedef struct {
 void init_HighPassFilter(HighPassFilter *handle, float cutoffFreq, float sampletimeS);
 void update_HighPassFilter(HighPassFilter *handle, float input);
 
+typedef struct {
+
+	float alpha[2];
+	float out[2];
+
+}LowPassFilter;
+
 void init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletimeS);
 void update_LowPassFilter(LowPassFilter *handle, float input);
+
 
 #endif

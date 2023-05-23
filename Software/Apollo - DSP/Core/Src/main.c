@@ -18,11 +18,15 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "LowPassFilter.h"
+#include "filter.h"
 #include "microprint.h"
 /* USER CODE END Includes */
 
