@@ -7,15 +7,42 @@
 #include "23K256.h"
 
 
-
-void testRAM(SPI_HandleTypeDef *spi) {
+void set_RAM_Mode(SPI_HandleTypeDef *spi, uint8_t MODE) {
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
 	HAL_SPI_Transmit(spi, WRSR, sizeof(WRSR), 100);
+	HAL_SPI_Transmit(spi, MODE, sizeof(MODE), 100);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+}
+
+void testRAM(SPI_HandleTypeDef *spi) {
+	uint8_t RX_Data = 0;
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
 	HAL_SPI_Transmit(spi, WRSR, sizeof(WRSR), 100);
-	for(uint16_t i=0;i<32767; i++){
-			HAL_SPI_Transmit(spi, I_WRITE, sizeof(I_WRITE), 100);
-			HAL_SPI_Transmit(spi, i, sizeof(i), 100);
-			HAL_SPI_Transmit(spi, MEM_TEST_V1, sizeof(MEM_TEST_V1), 100);
+	HAL_SPI_Transmit(spi, SEQUENTIAL_MODE, sizeof(SEQUENTIAL_MODE), 100);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+	HAL_SPI_Transmit(spi, I_WRITE, sizeof(I_WRITE), 100);
+	HAL_SPI_Transmit(spi, 0, sizeof(0), 100);
+	for(i=0; i<32767; i++) {
+		HAL_SPI_Transmit(spi, MEM_TEST_V1, sizeof(MEM_TEST_V1), 100);
+	}
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+	HAL_SPI_Transmit(spi, I_WRITE, sizeof(I_WRITE), 100);
+	HAL_SPI_Transmit(spi, 0, sizeof(0), 100);
+	for(i=0; i<32767; i++) {
+		HAL_SPI_Transmit(spi, MEM_TEST_V2, sizeof(MEM_TEST_V1), 100);
+	}
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+	HAL_SPI_Transmit(spi, I_READ, sizeof(I_READ), 100);
+	HAL_SPI_Transmit(spi, 0, sizeof(0), 100);
+	for(i=0; i<32767; i++) {
+		HAL_SPI_Receive(&hspi1, RX_Data, sizeof(RX_Data), 100);
 	}
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
 }

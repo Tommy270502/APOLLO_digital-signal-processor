@@ -15,9 +15,14 @@
 #define WRSR		1
 #define RFSR		5
 
+#define BYTE_MODE	0
+#define SEQUENTIAL_MODE	64
+#define PAGE_MODE	128
+
 #define MEM_TEST_V1 0xAA
 #define MEM_TEST_V2 0x55
 
+void initRAM(SPI_HandleTypeDef *spi, uint8_t MODE);
 void testRAM(SPI_HandleTypeDef *spi);
 
 void writeByteRAM(SPI_HandleTypeDef *spi, uint16_t address, uint8_t data);

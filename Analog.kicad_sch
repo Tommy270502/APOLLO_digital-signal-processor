@@ -1174,7 +1174,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 2b853ecc-98ad-4b5d-8872-f87068e30a6b)
   )
-  (text "oscillator:\nf = 1 / (2.2*R19*C41)\n\nf+20% = 1 / (2.2*5151R*120nF) = 1125Hz\nfnom = 1 / (2.2*5100R*100nF) = 891Hz\nf-20% = 1 / (2.2*5049R*120nF) = 735Hz"
+  (text "oscillator:\nf = 1 / (2*R19*C41)\n\nfl = 1 / (2*5151R*120nF) = 809Hz\nfnom = 1 / (2*5100R*100nF) = 980Hz\nfh = 1 / (2*5049R*80nF) = 1238Hz"
     (at 157.48 157.48 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 63369f22-35b6-42d2-b793-2f80a09c6fd1)
