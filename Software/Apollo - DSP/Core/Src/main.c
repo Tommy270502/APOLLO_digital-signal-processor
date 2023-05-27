@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include <stdint.h>
-#include <stdlib.h>
 #include <stdio.h>
 
 #include "usb_device.h"
@@ -27,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "filter.h"
+#include "23K256.h"
 #include "microprint.h"
 /* USER CODE END Includes */
 
@@ -82,9 +82,13 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	float adcVal = 0;
 	uint8_t timerUSB = 0;
+	uint16_t RAM_INDEX = 0;
+	uint16_t adcVal = 0;
 	char logBuf[64];
+	double ADC_DATA_1 = 0.00f;
+	double ADC_DATA_2 = 0.00f;
+	uint16_t LPF_OUT_ROUNDED = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -113,6 +117,10 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   init_LowPassFilter(&LPF1, 100.00f, 0.01f);
+  while(testRAM(&hspi1)) {
+
+  }
+  set_RAM_Mode(&hspi1, BYTE_MODE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,17 +130,30 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	adcVal = HAL_ADC_GetValue(&hadc1);
-	update_LowPassFilter(&LPF1, adcVal);
+	update_LowPassFilter(&LPF1, ADC_DATA_1);
+
+	LPF_OUT_ROUNDED = (uint16_t)(LPF1.out[0] + 0.5);
+	writeByteRAM(&hspi1, RAM_INDEX, (uint8_t)LPF_OUT_ROUNDED);
+	writeByteRAM(&hspi1, RAM_INDEX+1, (uint8_t) (LPF_OUT_ROUNDED>>8));
 
 	if ((HAL_GetTick() - timerUSB) >= 20) {
-		sprintf(logBuf, "%.2f,%.2f\r\n", adcVal, (LPF1.out[0]));
+		sprintf(logBuf, "%.2f,%.2f\r\n", ADC_DATA_1, (LPF1.out[0]));
 	  	CDC_Transmit_FS((uint8_t *) logBuf, strlen(logBuf));
 
 	  	timerUSB = HAL_GetTick();
 	}
+
+	if (RAM_INDEX == 32767) {
+		RAM_INDEX = 0;
+	}
+	else {
+		RAM_INDEX++;
+	}
+
 	HAL_Delay(10);
   }
   /* USER CODE END 3 */

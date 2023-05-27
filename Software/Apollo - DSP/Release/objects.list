@@ -1,3 +1,4 @@
+"./Core/Src/23K256.o"
 "./Core/Src/filter.o"
 "./Core/Src/main.o"
 "./Core/Src/microprint.o"

@@ -1,0 +1,4 @@
+23K256.c:10:6:set_RAM_Mode	1
+23K256.c:17:9:testRAM	4
+23K256.c:55:6:writeByteRAM	1
+23K256.c:63:9:readByteRAM	1

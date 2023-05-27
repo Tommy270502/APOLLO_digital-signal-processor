@@ -10,24 +10,24 @@
 
 typedef struct {
 
-	float alpha[2];
-	float input[2];
-	float out[2];
+	double alpha[2];
+	double input[2];
+	double out[2];
 
 }HighPassFilter;
 
-void init_HighPassFilter(HighPassFilter *handle, float cutoffFreq, float sampletimeS);
-void update_HighPassFilter(HighPassFilter *handle, float input);
+void init_HighPassFilter(HighPassFilter *handle, double cutoffFreq, double sampletimeS);
+void update_HighPassFilter(HighPassFilter *handle, double input);
 
 typedef struct {
 
-	float alpha[2];
-	float out[2];
+	double alpha[2];
+	double out[2];
 
 }LowPassFilter;
 
-void init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletimeS);
-void update_LowPassFilter(LowPassFilter *handle, float input);
+void init_LowPassFilter(LowPassFilter *handle, double cutoffFreq, double sampletimeS);
+void update_LowPassFilter(LowPassFilter *handle, double input);
 
 
 #endif

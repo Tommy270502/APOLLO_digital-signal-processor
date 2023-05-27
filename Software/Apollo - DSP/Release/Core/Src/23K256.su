@@ -1,0 +1,4 @@
+../Core/Src/23K256.c:10:6:set_RAM_Mode	24	static
+../Core/Src/23K256.c:17:9:testRAM	16	static
+../Core/Src/23K256.c:55:6:writeByteRAM	24	static
+../Core/Src/23K256.c:63:9:readByteRAM	24	static

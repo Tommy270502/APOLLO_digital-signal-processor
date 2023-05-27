@@ -8,14 +8,14 @@
 #include  <stdint.h>
 #include <stdio.h>
 
-void init_HighPassFilter(HighPassFilter *handle, float cutoffFreq, float sampletimeS) {
+void init_HighPassFilter(HighPassFilter *handle, double cutoffFreq, double sampletimeS) {
 
-	float RC = 1.00f / (6.28318531f * cutoffFreq);
+	double RC = 1.00f / (6.28318531f * cutoffFreq);
 
 	//compute alpha coefficient
 
 	//make sure RC is minimum 2x sampletimeS (improves frequency response and performance)
-	float twoX = RC / sampletimeS;
+	double twoX = RC / sampletimeS;
 
 	if(twoX <= 2) {
 		RC = RC * (2 / twoX);
@@ -30,7 +30,7 @@ void init_HighPassFilter(HighPassFilter *handle, float cutoffFreq, float samplet
 	handle->out[1] = 0.00f;
 }
 
-void update_HighPassFilter(HighPassFilter *handle, float input) {
+void update_HighPassFilter(HighPassFilter *handle, double input) {
 
 	//shift output sample
 	handle->input[0] = input;
@@ -42,14 +42,14 @@ void update_HighPassFilter(HighPassFilter *handle, float input) {
 	handle->input[1] = handle->input[0];
 }
 
-void init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletimeS) {
+void init_LowPassFilter(LowPassFilter *handle, double cutoffFreq, double sampletimeS) {
 
-	float RC = 1.00f / (6.28318531f * cutoffFreq);
+	double RC = 1.00f / (6.28318531f * cutoffFreq);
 
 	//compute alpha coefficient
 
 	//make sure RC is minimum 2x sampletimeS (improves frequency response and performance)
-	float twoX = RC / sampletimeS;
+	double twoX = RC / sampletimeS;
 
 	if(twoX <= 2) {
 		RC = RC * (2 / twoX);
@@ -64,7 +64,7 @@ void init_LowPassFilter(LowPassFilter *handle, float cutoffFreq, float sampletim
 	handle->out[1] = 0.00f;
 }
 
-void update_LowPassFilter(LowPassFilter *handle, float input) {
+void update_LowPassFilter(LowPassFilter *handle, double input) {
 
 	//shift output sample
 	handle->out[1] = handle->out[0];
