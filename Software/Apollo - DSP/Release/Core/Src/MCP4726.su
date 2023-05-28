@@ -1,0 +1,2 @@
+../Core/Src/MCP4726.c:10:6:initDAC	0	static
+../Core/Src/MCP4726.c:14:6:writeDAC	0	static

@@ -116,7 +116,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  init_LowPassFilter(&LPF1, 100.00f, 0.01f);
+  init_LowPassFilter(&LPF1, 1000.00f, 0.001f);
   while(testRAM(&hspi1)) {
 
   }
@@ -154,7 +154,7 @@ int main(void)
 		RAM_INDEX++;
 	}
 
-	HAL_Delay(10);
+	HAL_Delay(1);
   }
   /* USER CODE END 3 */
 }
