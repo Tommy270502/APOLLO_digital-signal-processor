@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "filter.h"
 #include "23K256.h"
+#include "MCP4726.h"
 #include "microprint.h"
 /* USER CODE END Includes */
 
@@ -117,6 +118,9 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   init_LowPassFilter(&LPF1, 1000.00f, 0.001f);
+
+  initDAC(&hi2c1);
+
   while(testRAM(&hspi1)) {
 
   }
@@ -130,12 +134,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	writeDAC(&hi2c1, 0);
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	adcVal = HAL_ADC_GetValue(&hadc1);
 	update_LowPassFilter(&LPF1, ADC_DATA_1);
-
+	writeDAC(&hi2c1, 4095);
 	LPF_OUT_ROUNDED = (uint16_t)(LPF1.out[0] + 0.5);
 	writeByteRAM(&hspi1, RAM_INDEX, (uint8_t)LPF_OUT_ROUNDED);
 	writeByteRAM(&hspi1, RAM_INDEX+1, (uint8_t) (LPF_OUT_ROUNDED>>8));

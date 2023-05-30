@@ -8,12 +8,11 @@
 #include "MCP4726.h"
 
 void initDAC(I2C_HandleTypeDef *i2c) {
-	uint8_t ADDRESS = DAC_I2C_ADDRESS;
-	uint8_t DAC_REG_ADDRESS = DAC_COMMAND_BITS | DAC_PWDWN_NORMAL;
 
-	HAL_I2C_Mem_Write (&i2c, ADDRESS, DAC_REG_ADDRESS, sizeof(DAC_REG_ADDRESS), 0, sizeof(0), 100);
+	HAL_I2C_Mem_Write(&i2c, DAC_I2C_ADDRESS, DAC_REG_ADDRESS, sizeof(DAC_REG_ADDRESS), 0, sizeof(0), 100);
 }
 
 void writeDAC(I2C_HandleTypeDef *i2c, uint16_t data) {
 
+	HAL_I2C_Mem_Write(&i2c, DAC_I2C_ADDRESS, DAC_REG_ADDRESS | (data>>4), sizeof(DAC_REG_ADDRESS), data, sizeof(data), 100);
 }
