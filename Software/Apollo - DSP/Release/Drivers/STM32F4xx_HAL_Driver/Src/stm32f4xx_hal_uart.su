@@ -41,7 +41,7 @@
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:2713:13:HAL_UARTEx_RxEventCallback	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:3097:13:UART_DMARxHalfCplt	8	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:3040:13:UART_DMAReceiveCplt	8	static,ignoring_inline_asm
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:3577:26:UART_Receive_IT.part.0.isra	16	static,ignoring_inline_asm
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:3577:26:UART_Receive_IT.isra	16	static,ignoring_inline_asm
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:2360:6:HAL_UART_IRQHandler	24	static,ignoring_inline_asm
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:2753:19:HAL_LIN_SendBreak	0	static,ignoring_inline_asm
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c:2780:19:HAL_MultiProcessor_EnterMuteMode	0	static,ignoring_inline_asm

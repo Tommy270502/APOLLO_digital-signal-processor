@@ -28,7 +28,7 @@
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1308:10:USB_ReadDevAllOutEpInterrupt	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1324:10:USB_ReadDevAllInEpInterrupt	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1342:10:USB_ReadDevOutEPInterrupt	0	static
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1360:10:USB_ReadDevInEPInterrupt	8	static
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1360:10:USB_ReadDevInEPInterrupt	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1381:7:USB_ClearInterrupts	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1394:10:USB_GetMode	0	static
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c:1404:20:USB_ActivateSetup	0	static

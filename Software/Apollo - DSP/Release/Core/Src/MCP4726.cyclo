@@ -1,2 +1,2 @@
-MCP4726.c:10:6:initDAC	1
-MCP4726.c:15:6:writeDAC	1
+../Core/Src/MCP4726.c:10:6:initDAC	1
+../Core/Src/MCP4726.c:15:6:writeDAC	1

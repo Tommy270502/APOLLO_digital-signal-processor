@@ -1,0 +1,4 @@
+../Core/Src/SDCARD.c:10:9:initSDCARD	1
+../Core/Src/SDCARD.c:14:9:readByteSDCARD	1
+../Core/Src/SDCARD.c:18:6:writeByteSDCARD	1
+../Core/Src/SDCARD.c:22:6:clearSDCARD	1
