@@ -5,70 +5,49 @@
  *      Author: Perri
  */
 #include "filter.h"
-#include  <stdint.h>
-#include <stdio.h>
 
-void init_HighPassFilter(HighPassFilter *handle, double cutoffFreq, double sampletimeS) {
+static double filter_rc(double cutoffFreq, double sampletimeS) {
+	double RC = 1.0 / (6.28318531 * cutoffFreq);
+	double min_rc = sampletimeS * 2.0;
 
-	double RC = 1.00f / (6.28318531f * cutoffFreq);
-
-	//compute alpha coefficient
-
-	//make sure RC is minimum 2x sampletimeS (improves frequency response and performance)
-	double twoX = RC / sampletimeS;
-
-	if(twoX <= 2) {
-		RC = RC * (2 / twoX);
+	if (RC < min_rc) {
+		RC = min_rc;
 	}
 
+	return RC;
+}
+
+void init_HighPassFilter(HighPassFilter *handle, double cutoffFreq, double sampletimeS) {
+	double RC = filter_rc(cutoffFreq, sampletimeS);
+
 	handle->alpha[0] = sampletimeS / (sampletimeS + RC);
-	//compute the inverse value of alpha coefficient
 	handle->alpha[1] = RC / (sampletimeS + RC);
 
-	//clear output buffer
+	handle->input[0] = 0.00f;
+	handle->input[1] = 0.00f;
 	handle->out[0] = 0.00f;
 	handle->out[1] = 0.00f;
 }
 
 void update_HighPassFilter(HighPassFilter *handle, double input) {
-
-	//shift output sample
 	handle->input[0] = input;
 	handle->out[1] = handle->out[0];
 
-	//compute new output sample
-	handle->out[0] = handle->alpha[0] * input + handle->alpha[1] * handle->out[1];
-	handle->out[0] = handle->alpha[0] * (handle->out[1] + handle->input[0] - handle->input[1]);
+	handle->out[0] = handle->alpha[1] * (handle->out[1] + handle->input[0] - handle->input[1]);
 	handle->input[1] = handle->input[0];
 }
 
 void init_LowPassFilter(LowPassFilter *handle, double cutoffFreq, double sampletimeS) {
-
-	double RC = 1.00f / (6.28318531f * cutoffFreq);
-
-	//compute alpha coefficient
-
-	//make sure RC is minimum 2x sampletimeS (improves frequency response and performance)
-	double twoX = RC / sampletimeS;
-
-	if(twoX <= 2) {
-		RC = RC * (2 / twoX);
-	}
+	double RC = filter_rc(cutoffFreq, sampletimeS);
 
 	handle->alpha[0] = sampletimeS / (sampletimeS + RC);
-	//compute the inverse value of alpha coefficient
 	handle->alpha[1] = RC / (sampletimeS + RC);
 
-	//clear output buffer
 	handle->out[0] = 0.00f;
 	handle->out[1] = 0.00f;
 }
 
 void update_LowPassFilter(LowPassFilter *handle, double input) {
-
-	//shift output sample
 	handle->out[1] = handle->out[0];
-
-	//compute new output sample
 	handle->out[0] = handle->alpha[0] * input + handle->alpha[1] * handle->out[1];
 }

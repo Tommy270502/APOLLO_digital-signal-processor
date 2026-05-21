@@ -5,27 +5,34 @@
  *      Author: Perri
  */
 
-#include <stdint.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "stm32f4xx_hal.h"
-
 #ifndef INC_23K256_H_
 #define INC_23K256_H_
 
-#define PAGENUM	 	1024
-#define PAGESIZE	32
-#define I_READ		3
-#define I_WRITE		2
-#define WRSR		1
-#define RFSR		5
+#include <stdint.h>
+#include "stm32f4xx_hal.h"
 
-#define BYTE_MODE	0
-#define SEQUENTIAL_MODE	64
-#define PAGE_MODE	128
+#define PAGENUM             1024U
+#define PAGESIZE            32U
+#define RAM_SIZE_BYTES      (PAGENUM * PAGESIZE)
+
+#define I_READ              0x03U
+#define I_WRITE             0x02U
+#define WRSR                0x01U
+#define RFSR                0x05U
+
+#define BYTE_MODE           0x00U
+#define SEQUENTIAL_MODE     0x40U
+#define PAGE_MODE           0x80U
 
 #define MEM_TEST_V1 0xAA
 #define MEM_TEST_V2 0x55
+
+#define RAM_OK              0U
+#define RAM_ERROR           1U
+#define RAM_TIMEOUT_MS      100U
+
+#define RAM_CS_GPIO_PORT    GPIOA
+#define RAM_CS_PIN          GPIO_PIN_2
 
 void set_RAM_Mode(SPI_HandleTypeDef *spi, uint8_t MODE);
 uint8_t testRAM(SPI_HandleTypeDef *spi);

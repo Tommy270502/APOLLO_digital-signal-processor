@@ -22,10 +22,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "filter.h"
 #include "23K256.h"
 #include "MCP4726.h"
+#include "filter.h"
 #include "microprint.h"
+#include "usbd_cdc_if.h"
+
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +39,12 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define FILTER_CUTOFF_HZ        1000.0
+#define FILTER_SAMPLE_TIME_S    0.001
+#define LOOP_DELAY_MS           1U
+#define USB_LOG_PERIOD_MS       20U
+#define LOG_BUFFER_SIZE         64U
+#define RAM_SAMPLE_BYTES        2U
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,7 +63,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-LowPassFilter LPF1;
+static LowPassFilter lowPassFilter;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -70,6 +80,17 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static uint16_t clamp_to_dac_code(double value) {
+	if (value <= 0.0) {
+		return 0U;
+	}
+
+	if (value >= (double)DAC_MAX_VALUE) {
+		return DAC_MAX_VALUE;
+	}
+
+	return (uint16_t)(value + 0.5);
+}
 
 /* USER CODE END 0 */
 

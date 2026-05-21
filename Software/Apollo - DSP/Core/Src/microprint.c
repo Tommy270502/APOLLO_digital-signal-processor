@@ -1,50 +1,39 @@
 #include "microprint.h"
 
+#include <stdio.h>
+#include <string.h>
+
+static void usb_print_delay(void) {
+	for (int i = 0; i < 5000; i++) {
+		asm("NOP");
+	}
+}
+
+static void usb_write_line(const char *text) {
+	static const char crnl[] = "\r\n";
+
+	(void)CDC_Transmit_FS((uint8_t *)text, (uint16_t)strlen(text));
+	usb_print_delay();
+	(void)CDC_Transmit_FS((uint8_t *)crnl, (uint16_t)strlen(crnl));
+	usb_print_delay();
+}
+
 void uprintFloat(float num) {
-	char buf[8];
-	static char* crnl = "\r\n";
+	char buf[16];
 
-	gcvt(num, 4, buf);
-
-	CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
-	}
-	CDC_Transmit_FS(crnl, strlen(crnl));
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
-	}
+	(void)snprintf(buf, sizeof(buf), "%.4g", (double)num);
+	usb_write_line(buf);
 }
 
 void uprintNum(uint16_t num) {
-
-	static char* crnl = "\r\n";
 	char buf[8];
 
-	itoa(num, buf, 10);
-	CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-	//HAL_Delay(1);
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
-	}
-	CDC_Transmit_FS(crnl, strlen(crnl));
-	//HAL_Delay(1);
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
-	}
+	(void)snprintf(buf, sizeof(buf), "%u", (unsigned int)num);
+	usb_write_line(buf);
 }
 
-void uprintStr(char* txt) {
-	static char* crnl = "\r\n";
-	CDC_Transmit_FS((char*)txt, strlen(txt));
-	//HAL_Delay(1);
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
-	}
-	CDC_Transmit_FS(crnl, strlen(crnl));
-	//HAL_Delay(1);
-	for(int i = 0;i<5000;i++) {
-		asm("NOP");
+void uprintStr(const char *txt) {
+	if (txt != NULL) {
+		usb_write_line(txt);
 	}
 }
-

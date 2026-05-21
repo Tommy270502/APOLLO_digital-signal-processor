@@ -1,0 +1,31 @@
+# KiCad local state and automatic backups
+*.lck
+*-backups/
+fp-info-cache
+
+# STM32CubeIDE / Eclipse workspace metadata
+Software/.metadata/
+**/.settings/language.settings.xml
+
+# STM32CubeIDE generated build outputs
+Software/Apollo - DSP/Debug/
+Software/Apollo - DSP/Release/
+*.o
+*.d
+*.su
+*.cyclo
+*.elf
+*.list
+*.map
+objects.list
+objects.mk
+sources.mk
+
+# Packaged snapshots and archives
+*.zip
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*~
+*.swp
