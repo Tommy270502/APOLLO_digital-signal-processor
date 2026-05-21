@@ -118,10 +118,7 @@ Current source status:
 - `main.c` uses blocking ADC polling rather than the configured ADC DMA path.
 - The hardware has labels for ADC channel 0 and channel 1, but the firmware
   currently configures a single regular conversion on `ADC_CHANNEL_0`.
-- The ADC conversion result is read into `adcVal`; in the current source,
-  `ADC_DATA_1` is initialized but not assigned from `adcVal` before the filter
-  update.
-- `SDCARD.c` contains empty placeholder functions; the SD-card interface is not
+- `SDCARD.c` contains placeholder no-op functions; the SD-card interface is not
   implemented in firmware yet.
 - The DAC schematic symbol is MCP4725-family, while the firmware driver files
   are named `MCP4726.*`.
@@ -158,6 +155,6 @@ Current source status:
    configuration as a starting point.
 
 The generated `Debug/` and `Release/` folders contain object files, maps, lists,
-and ELF outputs from previous builds. The generated makefiles reference a local
-Windows linker-script path, so a direct command-line build on another machine may
-need CubeIDE regeneration or path cleanup first.
+and ELF outputs from previous builds. The checked-in generated makefiles use the
+repository linker script path, but command-line builds still require the
+`arm-none-eabi` GCC toolchain to be available on `PATH`.

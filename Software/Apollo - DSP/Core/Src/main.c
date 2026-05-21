@@ -25,11 +25,9 @@
 #include "23K256.h"
 #include "MCP4726.h"
 #include "filter.h"
-#include "microprint.h"
 #include "usbd_cdc_if.h"
 
 #include <stdio.h>
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,6 +90,14 @@ static uint16_t clamp_to_dac_code(double value) {
 	return (uint16_t)(value + 0.5);
 }
 
+static uint16_t next_ram_sample_address(uint16_t address) {
+	if (address >= (RAM_SIZE_BYTES - RAM_SAMPLE_BYTES)) {
+		return 0U;
+	}
+
+	return (uint16_t)(address + RAM_SAMPLE_BYTES);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -101,13 +107,9 @@ static uint16_t clamp_to_dac_code(double value) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t timerUSB = 0;
-	uint16_t RAM_INDEX = 0;
-	uint16_t adcVal = 0;
-	char logBuf[64];
-	double ADC_DATA_1 = 0.00f;
-	double ADC_DATA_2 = 0.00f;
-	uint16_t LPF_OUT_ROUNDED = 0;
+	uint32_t lastUsbLogTick = 0U;
+	uint16_t ramAddress = 0U;
+	char logBuf[LOG_BUFFER_SIZE];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -135,11 +137,11 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  init_LowPassFilter(&LPF1, 1000.00f, 0.001f);
+  init_LowPassFilter(&lowPassFilter, FILTER_CUTOFF_HZ, FILTER_SAMPLE_TIME_S);
 
   initDAC(&hi2c1);
 
-  while(testRAM(&hspi1)) {
+  while (testRAM(&hspi1) != RAM_OK) {
 
   }
   set_RAM_Mode(&hspi1, BYTE_MODE);
@@ -152,31 +154,37 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	writeDAC(&hi2c1, 0);
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	adcVal = HAL_ADC_GetValue(&hadc1);
-	update_LowPassFilter(&LPF1, ADC_DATA_1);
-	writeDAC(&hi2c1, 4095);
-	LPF_OUT_ROUNDED = (uint16_t)(LPF1.out[0] + 0.5);
-	writeByteRAM(&hspi1, RAM_INDEX, (uint8_t)LPF_OUT_ROUNDED);
-	writeByteRAM(&hspi1, RAM_INDEX+1, (uint8_t) (LPF_OUT_ROUNDED>>8));
+	uint16_t adcValue = 0U;
+	double adcSample = 0.0;
+	uint16_t filteredValue = 0U;
 
-	if ((HAL_GetTick() - timerUSB) >= 20) {
-		sprintf(logBuf, "%.2f,%.2f\r\n", ADC_DATA_1, (LPF1.out[0]));
-	  	CDC_Transmit_FS((uint8_t *) logBuf, strlen(logBuf));
-
-	  	timerUSB = HAL_GetTick();
+	if (HAL_ADC_Start(&hadc1) == HAL_OK &&
+		HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK) {
+		adcValue = HAL_ADC_GetValue(&hadc1);
 	}
 
-	if (RAM_INDEX == 32767) {
-		RAM_INDEX = 0;
-	}
-	else {
-		RAM_INDEX++;
+	adcSample = (double)adcValue;
+	update_LowPassFilter(&lowPassFilter, adcSample);
+	filteredValue = clamp_to_dac_code(lowPassFilter.out[0]);
+
+	writeDAC(&hi2c1, filteredValue);
+	writeByteRAM(&hspi1, ramAddress, (uint8_t)(filteredValue & 0xFFU));
+	writeByteRAM(&hspi1, (uint16_t)(ramAddress + 1U), (uint8_t)(filteredValue >> 8));
+
+	if ((HAL_GetTick() - lastUsbLogTick) >= USB_LOG_PERIOD_MS) {
+		int logLen = snprintf(logBuf, sizeof(logBuf), "%.2f,%.2f\r\n", adcSample, lowPassFilter.out[0]);
+
+		if (logLen > 0) {
+			uint16_t txLen = (logLen < (int)sizeof(logBuf)) ? (uint16_t)logLen : (uint16_t)(sizeof(logBuf) - 1U);
+			(void)CDC_Transmit_FS((uint8_t *)logBuf, txLen);
+		}
+
+		lastUsbLogTick = HAL_GetTick();
 	}
 
-	HAL_Delay(1);
+	ramAddress = next_ram_sample_address(ramAddress);
+
+	HAL_Delay(LOOP_DELAY_MS);
   }
   /* USER CODE END 3 */
 }
@@ -407,6 +415,7 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
 /* USER CODE BEGIN MX_GPIO_Init_1 */
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
@@ -415,6 +424,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_GPIO_WritePin(RAM_CS_GPIO_PORT, RAM_CS_PIN, GPIO_PIN_SET);
+
+  GPIO_InitStruct.Pin = RAM_CS_PIN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(RAM_CS_GPIO_PORT, &GPIO_InitStruct);
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
