@@ -29,6 +29,7 @@ objects.list
 objects.mk
 sources.mk
 makefile
+!tests/host/Makefile
 subdir.mk
 
 # Host-side build outputs
