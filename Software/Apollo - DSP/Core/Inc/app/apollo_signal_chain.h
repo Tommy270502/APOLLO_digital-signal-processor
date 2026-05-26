@@ -54,6 +54,10 @@ apollo_status_t apollo_signal_chain_set_filter(apollo_signal_chain_t *chain,
 apollo_status_t apollo_signal_chain_set_channel(apollo_signal_chain_t *chain, uint8_t channel);
 void apollo_signal_chain_set_demo(apollo_signal_chain_t *chain, apollo_demo_mode_t mode);
 void apollo_signal_chain_clear_calibration(apollo_signal_chain_t *chain);
+apollo_status_t apollo_signal_chain_set_adc_calibration(apollo_signal_chain_t *chain,
+														float gain, float offset);
+apollo_status_t apollo_signal_chain_set_dac_calibration(apollo_signal_chain_t *chain,
+														float gain, float offset);
 uint16_t apollo_signal_chain_demo_sample(apollo_signal_chain_t *chain);
 apollo_status_t apollo_signal_chain_process(apollo_signal_chain_t *chain,
 											uint32_t timestamp_ms,

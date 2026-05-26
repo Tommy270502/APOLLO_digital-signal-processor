@@ -83,6 +83,10 @@ void apollo_signal_chain_set_demo(apollo_signal_chain_t *chain, apollo_demo_mode
 	chain->demo_phase = 0U;
 }
 
+#define CALIBRATION_GAIN_MIN    0.01f
+#define CALIBRATION_GAIN_MAX    100.0f
+#define CALIBRATION_OFFSET_MAX  4095.0f
+
 void apollo_signal_chain_clear_calibration(apollo_signal_chain_t *chain) {
 	if (chain == NULL) {
 		return;
@@ -92,6 +96,44 @@ void apollo_signal_chain_clear_calibration(apollo_signal_chain_t *chain) {
 	chain->adc_offset = 0.0f;
 	chain->dac_gain = 1.0f;
 	chain->dac_offset = 0.0f;
+}
+
+apollo_status_t apollo_signal_chain_set_adc_calibration(apollo_signal_chain_t *chain,
+														float gain, float offset) {
+	if (chain == NULL) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	if (gain < CALIBRATION_GAIN_MIN || gain > CALIBRATION_GAIN_MAX) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	if (offset < -CALIBRATION_OFFSET_MAX || offset > CALIBRATION_OFFSET_MAX) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	chain->adc_gain = gain;
+	chain->adc_offset = offset;
+	return APOLLO_STATUS_OK;
+}
+
+apollo_status_t apollo_signal_chain_set_dac_calibration(apollo_signal_chain_t *chain,
+														float gain, float offset) {
+	if (chain == NULL) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	if (gain < CALIBRATION_GAIN_MIN || gain > CALIBRATION_GAIN_MAX) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	if (offset < -CALIBRATION_OFFSET_MAX || offset > CALIBRATION_OFFSET_MAX) {
+		return APOLLO_STATUS_INVALID_ARG;
+	}
+
+	chain->dac_gain = gain;
+	chain->dac_offset = offset;
+	return APOLLO_STATUS_OK;
 }
 
 uint16_t apollo_signal_chain_demo_sample(apollo_signal_chain_t *chain) {

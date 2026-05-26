@@ -12,6 +12,8 @@ static void init_command(apollo_cli_command_t *command) {
 	command->channel = 0U;
 	command->demo_mode = APOLLO_DEMO_OFF;
 	command->telemetry_enabled = 1U;
+	command->cal_gain = 1.0f;
+	command->cal_offset = 0.0f;
 }
 
 static apollo_status_t parse_filter(const char *line, apollo_cli_command_t *command) {
@@ -130,6 +132,16 @@ apollo_status_t apollo_cli_parse(const char *line, apollo_cli_command_t *command
 
 	if (strcmp(line, "calibrate clear") == 0) {
 		command->type = APOLLO_CLI_COMMAND_CALIBRATE_CLEAR;
+		return APOLLO_STATUS_OK;
+	}
+
+	if (sscanf(line, "calibrate adc %f %f", &command->cal_gain, &command->cal_offset) == 2) {
+		command->type = APOLLO_CLI_COMMAND_CALIBRATE_ADC;
+		return APOLLO_STATUS_OK;
+	}
+
+	if (sscanf(line, "calibrate dac %f %f", &command->cal_gain, &command->cal_offset) == 2) {
+		command->type = APOLLO_CLI_COMMAND_CALIBRATE_DAC;
 		return APOLLO_STATUS_OK;
 	}
 

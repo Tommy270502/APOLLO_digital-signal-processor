@@ -18,7 +18,9 @@ typedef enum {
 	APOLLO_CLI_COMMAND_INPUT,
 	APOLLO_CLI_COMMAND_DEMO,
 	APOLLO_CLI_COMMAND_TELEMETRY,
-	APOLLO_CLI_COMMAND_CALIBRATE_CLEAR
+	APOLLO_CLI_COMMAND_CALIBRATE_CLEAR,
+	APOLLO_CLI_COMMAND_CALIBRATE_ADC,
+	APOLLO_CLI_COMMAND_CALIBRATE_DAC
 } apollo_cli_command_type_t;
 
 typedef struct {
@@ -27,6 +29,8 @@ typedef struct {
 	uint8_t channel;
 	apollo_demo_mode_t demo_mode;
 	uint8_t telemetry_enabled;
+	float cal_gain;
+	float cal_offset;
 } apollo_cli_command_t;
 
 apollo_status_t apollo_cli_parse(const char *line, apollo_cli_command_t *command);

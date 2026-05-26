@@ -159,7 +159,7 @@ static void test_diagnostics_and_telemetry(void) {
 	apollo_signal_chain_t chain;
 	apollo_signal_sample_t sample;
 	apollo_diagnostics_t diagnostics;
-	char buffer[160];
+	char buffer[320];
 	int length;
 
 	apollo_signal_chain_init(&chain);
@@ -173,9 +173,69 @@ static void test_diagnostics_and_telemetry(void) {
 	expect_true(length > 0, "telemetry sample length");
 	expect_true(strncmp(buffer, "T,20,2,0,1234,", 14U) == 0, "telemetry sample prefix");
 
-	length = apollo_telemetry_format_status(buffer, sizeof(buffer), &chain, &diagnostics, 1U, 1U);
+	length = apollo_telemetry_format_status(buffer, sizeof(buffer), &chain, &diagnostics, 1U, 1U, 0U);
 	expect_true(length > 0, "telemetry status length");
 	expect_true(strstr(buffer, "samples=1") != NULL, "telemetry status sample count");
+	expect_true(strstr(buffer, "rx_overflow=0") != NULL, "telemetry status rx_overflow");
+	expect_true(strstr(buffer, "adc_cal=1.000/0.0") != NULL, "telemetry status adc_cal default");
+}
+
+static void test_calibration_parsing(void) {
+	apollo_cli_command_t command;
+
+	expect_true(apollo_cli_parse("calibrate adc 1.5 10.0", &command) == APOLLO_STATUS_OK,
+				"parse calibrate adc");
+	expect_true(command.type == APOLLO_CLI_COMMAND_CALIBRATE_ADC, "calibrate adc type");
+	expect_near(command.cal_gain, 1.5f, 0.001f, "calibrate adc gain");
+	expect_near(command.cal_offset, 10.0f, 0.001f, "calibrate adc offset");
+
+	expect_true(apollo_cli_parse("calibrate dac 0.95 -5.0", &command) == APOLLO_STATUS_OK,
+				"parse calibrate dac");
+	expect_true(command.type == APOLLO_CLI_COMMAND_CALIBRATE_DAC, "calibrate dac type");
+	expect_near(command.cal_gain, 0.95f, 0.001f, "calibrate dac gain");
+	expect_near(command.cal_offset, -5.0f, 0.001f, "calibrate dac offset");
+
+	expect_true(apollo_cli_parse("calibrate clear", &command) == APOLLO_STATUS_OK,
+				"parse calibrate clear");
+	expect_true(command.type == APOLLO_CLI_COMMAND_CALIBRATE_CLEAR, "calibrate clear type");
+}
+
+static void test_calibration_validation(void) {
+	apollo_signal_chain_t chain;
+	apollo_signal_chain_init(&chain);
+
+	expect_true(apollo_signal_chain_set_adc_calibration(&chain, 1.5f, 10.0f) == APOLLO_STATUS_OK,
+				"valid adc calibration");
+	expect_near(chain.adc_gain, 1.5f, 0.001f, "adc gain set");
+	expect_near(chain.adc_offset, 10.0f, 0.001f, "adc offset set");
+
+	expect_true(apollo_signal_chain_set_adc_calibration(&chain, 0.0f, 0.0f) == APOLLO_STATUS_INVALID_ARG,
+				"reject zero gain");
+	expect_true(apollo_signal_chain_set_adc_calibration(&chain, -1.0f, 0.0f) == APOLLO_STATUS_INVALID_ARG,
+				"reject negative gain");
+	expect_true(apollo_signal_chain_set_adc_calibration(&chain, 101.0f, 0.0f) == APOLLO_STATUS_INVALID_ARG,
+				"reject excessive gain");
+	expect_true(apollo_signal_chain_set_dac_calibration(&chain, 1.0f, 5000.0f) == APOLLO_STATUS_INVALID_ARG,
+				"reject excessive offset");
+
+	apollo_signal_chain_clear_calibration(&chain);
+	expect_near(chain.adc_gain, 1.0f, 0.001f, "adc gain cleared");
+	expect_near(chain.dac_offset, 0.0f, 0.001f, "dac offset cleared");
+}
+
+static void test_calibration_signal_path(void) {
+	apollo_signal_chain_t chain;
+	apollo_signal_sample_t sample;
+	dsp_filter_config_t config;
+
+	apollo_signal_chain_init(&chain);
+	dsp_filter_default_config(&config);
+	config.mode = DSP_FILTER_MODE_BYPASS;
+	(void)apollo_signal_chain_set_filter(&chain, &config);
+
+	(void)apollo_signal_chain_set_adc_calibration(&chain, 2.0f, 100.0f);
+	(void)apollo_signal_chain_process(&chain, 10U, 1U, 1000U, &sample);
+	expect_near(sample.filtered, 2100.0f, 0.5f, "calibrated adc output");
 }
 
 int main(void) {
@@ -185,6 +245,9 @@ int main(void) {
 	test_median();
 	test_invalid_filter_params();
 	test_cli_parser();
+	test_calibration_parsing();
+	test_calibration_validation();
+	test_calibration_signal_path();
 	test_signal_chain_saturation();
 	test_diagnostics_and_telemetry();
 
