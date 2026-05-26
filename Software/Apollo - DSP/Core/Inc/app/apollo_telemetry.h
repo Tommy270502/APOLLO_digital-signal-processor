@@ -17,7 +17,8 @@ int apollo_telemetry_format_status(char *buffer,
 								   const apollo_signal_chain_t *chain,
 								   const apollo_diagnostics_t *diagnostics,
 								   uint8_t telemetry_enabled,
-								   uint8_t storage_available);
+								   uint8_t storage_available,
+								   uint32_t rx_overflow_count);
 
 #ifdef __cplusplus
 }

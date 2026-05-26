@@ -8,6 +8,7 @@
 static volatile uint16_t rx_head;
 static volatile uint16_t rx_tail;
 static char rx_buffer[APOLLO_USB_RX_BUFFER_SIZE];
+static volatile uint32_t rx_overflow;
 
 static uint16_t rx_next(uint16_t index) {
 	return (uint16_t)((index + 1U) % APOLLO_USB_RX_BUFFER_SIZE);
@@ -22,6 +23,7 @@ void apollo_usb_cdc_receive_bytes(const uint8_t *data, uint32_t length) {
 		uint16_t next = rx_next(rx_head);
 
 		if (next == rx_tail) {
+			rx_overflow++;
 			break;
 		}
 
@@ -90,4 +92,8 @@ apollo_status_t apollo_usb_cdc_write(const char *text) {
 	}
 
 	return apollo_usb_cdc_write_bytes((const uint8_t *)text, (uint16_t)strlen(text));
+}
+
+uint32_t apollo_usb_cdc_rx_overflow_count(void) {
+	return rx_overflow;
 }

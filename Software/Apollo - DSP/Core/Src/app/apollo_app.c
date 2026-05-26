@@ -32,7 +32,8 @@ static void app_send_formatted(apollo_app_t *app, char *buffer, int length) {
 static void app_send_help(apollo_app_t *app) {
 	app_send(app, "commands: help, status, telemetry on|off\r\n");
 	app_send(app, "filter bypass|lowpass <hz>|highpass <hz>|ema <alpha>|average <n>|median <n>\r\n");
-	app_send(app, "input 0|1, demo off|sine|step|impulse, calibrate clear\r\n");
+	app_send(app, "input 0|1, demo off|sine|step|impulse\r\n");
+	app_send(app, "calibrate clear|adc <gain> <offset>|dac <gain> <offset>\r\n");
 }
 
 static void app_send_status(apollo_app_t *app) {
@@ -42,7 +43,8 @@ static void app_send_status(apollo_app_t *app) {
 												&app->signal_chain,
 												&app->diagnostics,
 												app->telemetry_enabled,
-												apollo_storage_is_available(&app->storage));
+												apollo_storage_is_available(&app->storage),
+												apollo_usb_cdc_rx_overflow_count());
 	app_send_formatted(app, buffer, length);
 }
 
@@ -97,6 +99,20 @@ static void app_execute_command(apollo_app_t *app, const apollo_cli_command_t *c
 	case APOLLO_CLI_COMMAND_CALIBRATE_CLEAR:
 		apollo_signal_chain_clear_calibration(&app->signal_chain);
 		app_send_command_status(app, "calibrate", APOLLO_STATUS_OK);
+		break;
+
+	case APOLLO_CLI_COMMAND_CALIBRATE_ADC:
+		status = apollo_signal_chain_set_adc_calibration(&app->signal_chain,
+														 command->cal_gain,
+														 command->cal_offset);
+		app_send_command_status(app, "calibrate adc", status);
+		break;
+
+	case APOLLO_CLI_COMMAND_CALIBRATE_DAC:
+		status = apollo_signal_chain_set_dac_calibration(&app->signal_chain,
+														 command->cal_gain,
+														 command->cal_offset);
+		app_send_command_status(app, "calibrate dac", status);
 		break;
 
 	default:

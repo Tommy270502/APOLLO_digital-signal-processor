@@ -16,7 +16,7 @@
 #define APOLLO_SPI_TIMEOUT_MS               20U
 
 #define APOLLO_CLI_LINE_LENGTH              96U
-#define APOLLO_TELEMETRY_LINE_LENGTH        128U
+#define APOLLO_TELEMETRY_LINE_LENGTH        320U
 
 #define APOLLO_SRAM_LOG_RECORD_BYTES        8U
 
