@@ -53,3 +53,11 @@ desktop.ini
 *.swp
 *.tmp
 *.bak
+
+# AI assistant local config
+.claude/
+.codex/
+.cursor/
+CLAUDE.md
+AGENTS.md
+.github/copilot-instructions.md
