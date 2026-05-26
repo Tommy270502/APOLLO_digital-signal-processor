@@ -36,7 +36,7 @@ by the managed build via the `Core` source entry in `.cproject`.
 
 ## Board Smoke Validation (Phase 3)
 
-Not yet performed — requires physical board.
+Firmware builds verified. Hardware tests require physical board.
 
 - [ ] USB CDC enumeration
 - [ ] `help` command response
