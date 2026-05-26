@@ -1,31 +1,55 @@
 # KiCad local state and automatic backups
+*.kicad_prl
 *.lck
+*.round-tracks-config
 *-backups/
 fp-info-cache
+sym-lib-table
+fp-lib-table
 
-# STM32CubeIDE / Eclipse workspace metadata
+# STM32CubeIDE / Eclipse local metadata
 Software/.metadata/
-**/.settings/language.settings.xml
+**/.metadata/
+**/.settings/
 
 # STM32CubeIDE generated build outputs
-Software/Apollo - DSP/Debug/
-Software/Apollo - DSP/Release/
+**/Debug/
+**/Release/
 *.o
 *.d
 *.su
 *.cyclo
 *.elf
+*.hex
+*.bin
 *.list
 *.map
+*.lst
 objects.list
 objects.mk
 sources.mk
+makefile
+subdir.mk
+
+# Host-side build outputs
+build/
+out/
+*.exe
+*.gcda
+*.gcno
+*.gcov
 
 # Packaged snapshots and archives
 *.zip
+*.7z
+*.tar
+*.tar.gz
 
 # OS/editor noise
 .DS_Store
 Thumbs.db
+desktop.ini
 *~
 *.swp
+*.tmp
+*.bak
