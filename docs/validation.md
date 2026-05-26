@@ -12,10 +12,17 @@ Run:
 make -C tests/host test
 ```
 
-This checks host-buildable DSP, command parsing, telemetry, diagnostics, and
-signal-chain logic.
+Tests cover:
+- DSP filters (lowpass, highpass, EMA, moving average, median)
+- CLI command parsing (filter, input, demo, telemetry, calibrate)
+- Calibration validation (gain bounds, offset bounds, signal-path math)
+- Signal chain saturation and DAC clipping flags
+- Diagnostics (sample counting, min/max/mean ADC)
+- Telemetry formatting (sample and status frames)
 
 ## Firmware Build Validation
+
+Not yet verified — requires STM32CubeIDE.
 
 1. Import `Software/Apollo - DSP/` into STM32CubeIDE.
 2. Build Debug or Release.
@@ -23,20 +30,40 @@ signal-chain logic.
    `Core/Inc/drivers`, or `Core/Inc/platform`.
 4. Flash using SWD.
 
-## Manual Hardware Validation
+## Board Smoke Validation (Phase 3)
 
-- Confirm USB CDC enumeration and command response with `help` and `status`.
-- Run `demo sine` and inspect telemetry and DAC output.
-- Switch `input 0` and `input 1` and verify ADC readings against known input
-  voltages.
-- Confirm SRAM self-test result in `status`; verify no SRAM error count during
-  logging.
-- Measure DAC output for low, mid-scale, and full-scale commands via demo or
-  controlled ADC inputs.
+Not yet performed — requires physical board.
+
+- [ ] USB CDC enumeration
+- [ ] `help` command response
+- [ ] `status` command response
+- [ ] Malformed command error handling
+- [ ] `demo sine`, `demo step`, `demo impulse`
+- [ ] `filter bypass`, `filter lowpass 100`, `filter highpass 100`
+- [ ] `filter average 5`, `filter median 5`
+- [ ] Telemetry frame format over USB CDC
+- [ ] `input 0` and `input 1` ADC readings
+- [ ] Known voltage readings on both channels
+- [ ] DAC follows filtered/demo signal
+- [ ] SRAM self-test status
+- [ ] No increasing SRAM error count during normal logging
+
+## Phase Status
+
+| Phase | Status | Notes |
+| --- | --- | --- |
+| 1. Stabilize refactor | Done | Commits split and tracked |
+| 2. Host tests / CI | Done | Tests pass on Windows; CI not yet run |
+| 3. Board smoke | Blocked | Requires physical board |
+| 4. USB/app robustness | Done | RX overflow counter, startup reporting |
+| 5. Calibration | Done | calibrate adc/dac commands with validation |
+| 6. ADC timer/DMA | Blocked | Depends on Phase 3 board validation |
+| 7. microSD | Unsupported | Documented as future work |
+| 8. README | Partial | Updated after host test verification |
 
 ## Known Limits
 
-- ADC DMA/timer sampling is configured only partially in CubeMX and is not the
-  active acquisition path.
+- ADC uses bounded polling, not timer-triggered DMA.
 - microSD firmware support is not implemented.
-- Hardware behavior has to be validated on the actual board.
+- Hardware behavior must be validated on the actual board.
+- GitHub CI has not been triggered yet (not pushed to remote).

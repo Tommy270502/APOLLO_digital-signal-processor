@@ -1,160 +1,186 @@
 # APOLLO Digital Signal Processor
 
-APOLLO DSP is a USB-powered STM32F401 signal-processing board with a KiCad
-hardware design and STM32CubeIDE firmware. The firmware is structured around an
-analog processing loop that samples an input, applies a simple first-order
-low-pass filter, drives an external I2C DAC, streams CSV-style telemetry over
-USB CDC, and writes filtered sample data to an external SPI SRAM.
+APOLLO is a USB-powered STM32F401 digital signal-processing board and firmware
+case study. The repository combines KiCad hardware design, STM32CubeIDE
+firmware, external analog and memory devices, host-side tests for reusable C
+logic, and validation notes for hardware-dependent behavior.
 
-![Front side](pictures/front_side.png)
-![Back side](pictures/back_side.png)
+![APOLLO front side](pictures/front_side.png)
+![APOLLO back side](pictures/back_side.png)
+
+## What This Demonstrates
+
+- STM32F401 firmware architecture with CubeMX-generated code kept separate from
+  hand-written application logic.
+- USB CDC command and telemetry interface for live DSP configuration.
+- Two-channel analog input support, external I2C DAC output, and SPI SRAM
+  circular sample logging.
+- Embedded-friendly DSP filters with fixed buffers and parameter validation.
+- Clear distinction between implemented, host-tested, and hardware-validation
+  required features.
+
+## System Overview
+
+```mermaid
+flowchart LR
+    Host["PC serial monitor"] <-- "USB CDC" --> USB["USB-C + ESD"]
+    USB --> MCU["STM32F401RBTx\n84 MHz Cortex-M4F"]
+    AIN["AIN0 / AIN1"] --> Analog["MCP602 analog conditioning"]
+    Analog --> ADC["ADC1 CH0 / CH1"]
+    ADC --> MCU
+    MCU -- "I2C1 PB6/PB7" --> DAC["MCP4725-family\n12-bit I2C DAC"]
+    DAC --> AOUT["Analog output"]
+    MCU -- "SPI1 PA5/PA6/PA7" --> SRAM["23K256\n32 KiB SPI SRAM"]
+    MCU -- "SPI1 + SD_nCS" --> SD["microSD socket\nfirmware unsupported"]
+    MCU --> SWD["SWD debug"]
+    MCU --> UART["USART1 header"]
+```
+
+## Firmware Architecture
+
+```mermaid
+flowchart TD
+    Main["main.c\nHAL + CubeMX init"] --> App["app/apollo_app"]
+    App --> ADC["platform/apollo_adc\nbounded polling"]
+    App --> USB["platform/apollo_usb_cdc\nRX line buffer + TX wrapper"]
+    App --> Chain["app/apollo_signal_chain"]
+    Chain --> DSP["dsp/dsp_filters"]
+    App --> DAC["drivers/dac_driver"]
+    App --> Store["app/apollo_storage"]
+    Store --> SRAM["drivers/sram_23k256"]
+    App --> Tel["app/apollo_telemetry"]
+    App --> Diag["app/apollo_diagnostics"]
+    App --> CLI["app/apollo_cli"]
+```
+
+`main.c` now performs HAL initialization, CubeMX peripheral initialization, and
+then calls `apollo_app_init()` and `apollo_app_task()`. Application behavior is
+kept under `Software/Apollo - DSP/Core/Inc/*` and
+`Software/Apollo - DSP/Core/Src/*`.
+
+## Signal Pipeline
+
+```mermaid
+flowchart LR
+    Source{"Source"} -->|ADC CH0/CH1| Raw["raw ADC"]
+    Source -->|demo mode| Raw
+    Raw --> Cal["offset/gain calibration"]
+    Cal --> Filter["runtime DSP filter"]
+    Filter --> Clamp["DAC saturation handling"]
+    Clamp --> DAC["I2C DAC write"]
+    Filter --> Telemetry["USB CDC telemetry"]
+    Clamp --> Log["SPI SRAM circular log"]
+    Raw --> Diagnostics["min/max/mean/errors"]
+```
+
+Default firmware behavior preserves the original demo path: ADC channel 0 is
+sampled, a 1 kHz first-order low-pass filter is applied, the result is written
+to the external DAC, telemetry is streamed over USB CDC, and compact sample
+records are written to external SRAM when the SRAM self-test passes.
+
+## USB Commands
+
+Commands are sent over the USB CDC virtual COM port with newline termination.
+
+| Command | Purpose |
+| --- | --- |
+| `help` | Print command summary. |
+| `status` | Print sample count, channel, filter, demo, calibration, storage, and error counters. |
+| `filter bypass` | Disable filtering. |
+| `filter lowpass <hz>` | First-order low-pass IIR. |
+| `filter highpass <hz>` | First-order high-pass IIR. |
+| `filter ema <alpha>` | Exponential moving average, `0 < alpha <= 1`. |
+| `filter average <n>` | Moving average, up to 16 samples. |
+| `filter median <n>` | Median filter, up to 9 samples. |
+| `input 0` / `input 1` | Select ADC channel 0 or 1. |
+| `demo off\|sine\|step\|impulse` | Use real ADC input or synthetic samples. |
+| `telemetry on\|off` | Enable or disable periodic telemetry frames. |
+| `calibrate clear` | Restore unity ADC/DAC scaling. |
+| `calibrate adc <gain> <offset>` | Set ADC input calibration (gain 0.01-100, offset +/-4095). |
+| `calibrate dac <gain> <offset>` | Set DAC output calibration (gain 0.01-100, offset +/-4095). |
+
+## Telemetry
+
+Sample frames use this CSV format:
+
+```text
+T,timestamp_ms,sequence,channel,raw_adc,filtered,dac_code,filter,flags
+```
+
+Example:
+
+```text
+T,1200,57,0,1820,1784.42,1784,lowpass,0x00000000
+```
+
+Flags report clipping, demo source, filter errors, ADC errors, DAC errors, and
+SRAM logging errors.
 
 ## Repository Layout
 
 | Path | Purpose |
 | --- | --- |
-| `Apollo - DSP.kicad_pro` | Main KiCad project file. |
-| `Apollo - DSP.kicad_sch` | Top-level schematic with USB-C, power entry, protection, regulators, and sheet links. |
-| `DSP.kicad_sch` | Digital sheet with the STM32F401RBTx, clock, SWD/UART headers, 23K256 SRAM, and SD-card connector. |
-| `Analog.kicad_sch` | Analog sheet with MCP602 op-amp stages, analog connectors, and the MCP4725-family DAC symbol. |
-| `Apollo - DSP.kicad_pcb` | Routed PCB layout. |
-| `Gerber/` | Fabrication exports, drill files, and Gerber job file. |
-| `pictures/` | Board render/export images used by this README. |
-| `datasheets/` | Local component datasheets and reference documents. |
+| `Apollo - DSP.kicad_pro` | Main KiCad project. |
+| `Apollo - DSP.kicad_sch`, `Analog.kicad_sch`, `DSP.kicad_sch` | Hardware schematics. |
+| `Apollo - DSP.kicad_pcb` | PCB layout. |
+| `Gerber/` | Fabrication outputs. |
+| `pictures/` | Board images. |
+| `datasheets/` | Local component datasheets. |
 | `Software/Apollo - DSP/` | STM32CubeIDE firmware project. |
+| `tests/host/` | Host-buildable tests for pure C logic. |
+| `docs/` | Technical documentation and validation notes. |
 
-## Architecture Overview
+See [REPOSITORY_STRUCTURE.md](REPOSITORY_STRUCTURE.md) for more detail.
 
-```mermaid
-flowchart LR
-    Host["USB host / serial monitor"] <-- "USB CDC" --> UsbConn["USB-C connector"]
-    UsbConn --> Esd["USBLC6-2SC6 ESD protection"]
-    Esd --> UsbPins["USB OTG FS\nPA11 DM / PA12 DP"]
-    UsbPins --> Mcu["STM32F401RBTx\nCortex-M4F, HAL firmware"]
+## Build And Flash
 
-    Vbus["USB VBUS"] --> Fuse["Fuse + ferrite filtering"]
-    Fuse --> Ldo["NCP115ASN330T2G\n3.3 V regulator"]
-    Ldo --> Mcu
-    Ldo --> Ram["23K256 SRAM\n32 KiB"]
-    Ldo --> Dac["MCP4725-family DAC\nfirmware driver: MCP4726.*"]
+1. Open STM32CubeIDE.
+2. Import `Software/Apollo - DSP/` as an existing STM32CubeIDE project.
+3. Build the Debug or Release configuration.
+4. Flash/debug over the SWD header using an ST-LINK compatible probe.
+5. Open the USB CDC virtual COM port with a serial terminal.
+6. Send `help`, `status`, or `demo sine` to verify the command path.
 
-    subgraph Analog["Analog signal path"]
-        Ain["AIN0 / AIN1"] --> InStage["MCP602 input buffers and RC filters"]
-        InStage --> Adc["ADC1\nfirmware currently samples CH0"]
-        Dac --> OutStage["MCP602 output buffers"]
-        OutStage --> Aout["AOUT / OSC outputs"]
-    end
+Generated `Debug/` and `Release/` folders are intentionally not tracked.
+STM32CubeIDE regenerates them locally.
 
-    Adc --> Mcu
-    Mcu -- "I2C1 PB6/PB7" --> Dac
-    Mcu -- "SPI1 PA5/PA6/PA7 + RAM_nCS" --> Ram
-    Mcu -- "SPI1 + SD_nCS" --> Sd["microSD socket\nhardware present, firmware stubs"]
-    Mcu -- "USART1 PA9/PA10" --> Uart["UART header"]
-    Mcu -- "SWD PA13/PA14" --> Debug["SWD debug/programming header"]
+## Host Tests
+
+Host tests cover pure logic that does not require STM32 HAL or board hardware:
+
+```sh
+make -C tests/host test
 ```
 
-## Hardware Summary
+The tests exercise DSP filter behavior, command parsing, telemetry formatting,
+diagnostics, calibration/clipping math, and signal-chain demo paths.
 
-- MCU: STM32F401RBTx in LQFP64, configured for an 84 MHz system clock from a
-  16 MHz HSE crystal.
-- USB: USB-C receptacle, USBLC6-2SC6 ESD protection, and USB OTG FS routed to
-  the STM32 device controller.
-- Power: USB VBUS input, fuse/ferrite filtering, NCP115ASN330T2G 3.3 V LDO, and
-  separate analog supply labels such as `+5VA` and `VAA`.
-- Analog path: two analog input labels (`AIN0`, `AIN1`), MCP602 op-amp
-  conditioning stages, an I2C DAC output path, and analog output labels
-  (`AOUT`, `OSC`).
-- Memory and storage: 23K256 SPI SRAM plus a microSD connector wired to the SPI
-  bus through a separate chip-select net.
-- Debug and expansion: SWD, USART1, test points, and pin headers are present in
-  the digital schematic.
+## Validation Status
 
-## Firmware Summary
+- Host tests pass on Windows 11 / MSYS2 / GCC 15.2.0 (2026-05-27).
+- Firmware build requires STM32CubeIDE — not yet verified in this cycle.
+- Hardware-dependent behavior requires board validation:
+  ADC channel accuracy, DAC output voltage, SRAM SPI timing, and USB behavior
+  under sustained traffic.
+- microSD hardware is present, but firmware support is explicitly unsupported
+  until a real SPI block-device and filesystem implementation is added.
 
-The firmware project in `Software/Apollo - DSP/` was generated with
-STM32CubeMX/STM32CubeIDE for STM32Cube FW_F4 V1.27.1. Application code lives in
-`Core/Src` and `Core/Inc`; generated HAL, CMSIS, USB Device, and middleware code
-is kept alongside it.
+See [docs/validation.md](docs/validation.md) for the full validation checklist.
 
-Important application files:
+## Engineering Highlights
 
-| File | Role |
-| --- | --- |
-| `Core/Src/main.c` | Peripheral initialization and main processing loop. |
-| `Core/Src/filter.c` / `Core/Inc/filter.h` | First-order low-pass and high-pass filter helpers. |
-| `Core/Src/MCP4726.c` / `Core/Inc/MCP4726.h` | I2C DAC initialization and write helpers. |
-| `Core/Src/23K256.c` / `Core/Inc/23K256.h` | SPI SRAM mode, test, read, and write helpers. |
-| `Core/Src/microprint.c` / `Core/Inc/microprint.h` | Convenience USB CDC print helpers. |
-| `Core/Src/SDCARD.c` / `Core/Inc/SDCARD.h` | SD-card API placeholders. |
-| `USB_DEVICE/App/usbd_cdc_if.c` | USB CDC transmit/receive interface. |
-| `Apollo - DSP.ioc` | CubeMX peripheral and pin configuration. |
+- CubeMX-generated code is preserved and hand-written application code is moved
+  into reviewable modules.
+- Peripheral failures no longer force infinite retry loops in application code.
+- Runtime filter selection and demo sources make the board demonstrable without
+  external analog equipment.
+- Documentation states validation limits instead of claiming untested hardware
+  support.
 
-### Main Loop
+## Future Work
 
-```mermaid
-flowchart TD
-    Boot["Reset / boot"] --> Init["HAL, clocks, GPIO, DMA, ADC1, I2C1, SPI1, USART1, USB CDC"]
-    Init --> FilterInit["Initialize low-pass filter\ncutoff 1 kHz, sample time 1 ms"]
-    FilterInit --> DacInit["Initialize DAC"]
-    DacInit --> RamTest["Test 23K256 SRAM"]
-    RamTest --> RamMode["Set SRAM byte mode"]
-    RamMode --> Loop["1 ms processing loop"]
-    Loop --> Sample["Start ADC1 and read single conversion"]
-    Sample --> Process["Update low-pass filter"]
-    Process --> DacWrite["Write DAC output"]
-    DacWrite --> Store["Store filtered sample bytes in SPI SRAM"]
-    Store --> Telemetry{"20 ms elapsed?"}
-    Telemetry -- yes --> UsbLog["Transmit CSV line over USB CDC"]
-    Telemetry -- no --> Index
-    UsbLog --> Index["Advance RAM index"]
-    Index --> Delay["HAL_Delay(1)"]
-    Delay --> Loop
-```
-
-Current source status:
-
-- The CubeMX configuration enables ADC1, DMA2 Stream0, I2C1, SPI1, USART1, USB
-  Device CDC, and USB OTG FS.
-- `main.c` uses blocking ADC polling rather than the configured ADC DMA path.
-- The hardware has labels for ADC channel 0 and channel 1, but the firmware
-  currently configures a single regular conversion on `ADC_CHANNEL_0`.
-- `SDCARD.c` contains placeholder no-op functions; the SD-card interface is not
-  implemented in firmware yet.
-- The DAC schematic symbol is MCP4725-family, while the firmware driver files
-  are named `MCP4726.*`.
-
-## Peripheral Map
-
-| Peripheral | Pins / Nets | Current use |
-| --- | --- | --- |
-| ADC1 | `PA0` / `ADC_CH0_IN`, `PA1` / `ADC_CH1_IN` | Firmware samples ADC channel 0. |
-| I2C1 | `PB6` SCL, `PB7` SDA | External DAC control. |
-| SPI1 | `PA5` SCK, `PA6` MISO, `PA7` MOSI | External SRAM and SD-card connector. |
-| USB OTG FS | `PA11` DM, `PA12` DP | USB CDC virtual COM port. |
-| USART1 | `PA9` TX, `PA10` RX | UART header. |
-| SWD | `PA13` SWDIO, `PA14` SWCLK | Programming and debug. |
-| HSE | `PH0`, `PH1` | 16 MHz crystal input. |
-
-## Opening and Building
-
-### Hardware
-
-1. Open `Apollo - DSP.kicad_pro` in KiCad.
-2. Use `Apollo - DSP.kicad_sch`, `DSP.kicad_sch`, and `Analog.kicad_sch` for
-   schematic review.
-3. Use `Apollo - DSP.kicad_pcb` for board layout review.
-4. Use the files in `Gerber/` for fabrication output.
-
-### Firmware
-
-1. Open or import `Software/Apollo - DSP/` in STM32CubeIDE.
-2. Review or regenerate configuration from `Apollo - DSP.ioc` if peripherals or
-   pins change.
-3. Build the Debug or Release configuration from STM32CubeIDE.
-4. Flash/debug through the SWD header using the included CubeIDE launch/debug
-   configuration as a starting point.
-
-The generated `Debug/` and `Release/` folders contain object files, maps, lists,
-and ELF outputs from previous builds. The checked-in generated makefiles use the
-repository linker script path, but command-line builds still require the
-`arm-none-eabi` GCC toolchain to be available on `PATH`.
+- Move ADC acquisition to timer-triggered DMA with overrun accounting.
+- Add real microSD support using a validated SPI block-device layer and FatFs.
+- Add fixture-based hardware tests for DAC linearity, ADC channel calibration,
+  SRAM retention, and USB throughput.
+- Add optional firmware CI if a reproducible STM32 toolchain image is adopted.
