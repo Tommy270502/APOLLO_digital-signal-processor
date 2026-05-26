@@ -158,7 +158,8 @@ diagnostics, calibration/clipping math, and signal-chain demo paths.
 ## Validation Status
 
 - Host tests pass on Windows 11 / MSYS2 / GCC 15.2.0 (2026-05-27).
-- Firmware build requires STM32CubeIDE — not yet verified in this cycle.
+- Firmware Debug and Release builds pass with 0 errors (STM32CubeIDE 2.0.0,
+  arm-none-eabi-gcc 14.3.1, 2026-05-27).
 - Hardware-dependent behavior requires board validation:
   ADC channel accuracy, DAC output voltage, SRAM SPI timing, and USB behavior
   under sustained traffic.

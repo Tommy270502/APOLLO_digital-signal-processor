@@ -20,15 +20,19 @@ Tests cover:
 - Diagnostics (sample counting, min/max/mean ADC)
 - Telemetry formatting (sample and status frames)
 
-## Firmware Build Validation
+## Firmware Build Results
 
-Not yet verified — requires STM32CubeIDE.
+| Date | Configuration | Compiler | Result | Size (text/data/bss) |
+| --- | --- | --- | --- | --- |
+| 2026-05-27 | Debug | arm-none-eabi-gcc 14.3.1 | 0 errors, 1 warning | 74,976 / 716 / 8,024 |
+| 2026-05-27 | Release | arm-none-eabi-gcc 14.3.1 | 0 errors, 1 warning | 49,816 / 712 / 8,024 |
 
-1. Import `Software/Apollo - DSP/` into STM32CubeIDE.
-2. Build Debug or Release.
-3. Confirm no missing include paths for `Core/Inc/app`, `Core/Inc/dsp`,
-   `Core/Inc/drivers`, or `Core/Inc/platform`.
-4. Flash using SWD.
+Built via STM32CubeIDE 2.0.0 headless builder. The single warning is a
+standard bare-metal RWX LOAD segment note from the linker.
+
+All new source directories (`Core/Src/app/`, `Core/Src/dsp/`,
+`Core/Src/drivers/`, `Core/Src/platform/`) are discovered automatically
+by the managed build via the `Core` source entry in `.cproject`.
 
 ## Board Smoke Validation (Phase 3)
 
@@ -54,7 +58,7 @@ Not yet performed — requires physical board.
 | --- | --- | --- |
 | 1. Stabilize refactor | Done | Commits split and tracked |
 | 2. Host tests / CI | Done | Tests pass on Windows; CI not yet run |
-| 3. Board smoke | Blocked | Requires physical board |
+| 3. Board smoke | Partial | Firmware builds; hardware tests require physical board |
 | 4. USB/app robustness | Done | RX overflow counter, startup reporting |
 | 5. Calibration | Done | calibrate adc/dac commands with validation |
 | 6. ADC timer/DMA | Blocked | Depends on Phase 3 board validation |
@@ -67,3 +71,4 @@ Not yet performed — requires physical board.
 - microSD firmware support is not implemented.
 - Hardware behavior must be validated on the actual board.
 - GitHub CI has not been triggered yet (not pushed to remote).
+- Phase 3 hardware smoke and Phase 6 ADC DMA require physical board access.
