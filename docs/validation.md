@@ -61,7 +61,7 @@ Not yet performed — requires physical board.
 | 3. Board smoke | Partial | Firmware builds; hardware tests require physical board |
 | 4. USB/app robustness | Done | RX overflow counter, startup reporting |
 | 5. Calibration | Done | calibrate adc/dac commands with validation |
-| 6. ADC timer/DMA | Blocked | Depends on Phase 3 board validation |
+| 6. ADC timer/DMA | Done | DMA compile-time option, polling default, both build verified |
 | 7. microSD | Unsupported | Documented as future work |
 | 8. README | Partial | Updated after host test verification |
 
@@ -71,4 +71,6 @@ Not yet performed — requires physical board.
 - microSD firmware support is not implemented.
 - Hardware behavior must be validated on the actual board.
 - GitHub CI has not been triggered yet (not pushed to remote).
-- Phase 3 hardware smoke and Phase 6 ADC DMA require physical board access.
+- Phase 3 hardware smoke requires physical board access.
+- Phase 6 DMA runtime behavior (sample rate stability, overrun count) requires
+  board validation. Enable with `-DAPOLLO_ADC_USE_DMA=1` compiler define.
