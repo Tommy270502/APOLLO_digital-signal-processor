@@ -22,12 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "23K256.h"
-#include "MCP4726.h"
-#include "filter.h"
-#include "usbd_cdc_if.h"
-
-#include <stdio.h>
+#include "app/apollo_app.h"
+#include "drivers/sram_23k256.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,12 +33,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define FILTER_CUTOFF_HZ        1000.0
-#define FILTER_SAMPLE_TIME_S    0.001
-#define LOOP_DELAY_MS           1U
-#define USB_LOG_PERIOD_MS       20U
-#define LOG_BUFFER_SIZE         64U
-#define RAM_SAMPLE_BYTES        2U
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,7 +51,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-static LowPassFilter lowPassFilter;
+static apollo_app_t apollo_app;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,26 +68,6 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static uint16_t clamp_to_dac_code(double value) {
-	if (value <= 0.0) {
-		return 0U;
-	}
-
-	if (value >= (double)DAC_MAX_VALUE) {
-		return DAC_MAX_VALUE;
-	}
-
-	return (uint16_t)(value + 0.5);
-}
-
-static uint16_t next_ram_sample_address(uint16_t address) {
-	if (address >= (RAM_SIZE_BYTES - RAM_SAMPLE_BYTES)) {
-		return 0U;
-	}
-
-	return (uint16_t)(address + RAM_SAMPLE_BYTES);
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -107,9 +77,7 @@ static uint16_t next_ram_sample_address(uint16_t address) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint32_t lastUsbLogTick = 0U;
-	uint16_t ramAddress = 0U;
-	char logBuf[LOG_BUFFER_SIZE];
+	apollo_app_handles_t apollo_handles;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -137,14 +105,11 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  init_LowPassFilter(&lowPassFilter, FILTER_CUTOFF_HZ, FILTER_SAMPLE_TIME_S);
-
-  initDAC(&hi2c1);
-
-  while (testRAM(&hspi1) != RAM_OK) {
-
-  }
-  set_RAM_Mode(&hspi1, BYTE_MODE);
+  apollo_handles.adc = &hadc1;
+  apollo_handles.dac_i2c = &hi2c1;
+  apollo_handles.sram_spi = &hspi1;
+  apollo_handles.uart = &huart1;
+  (void)apollo_app_init(&apollo_app, &apollo_handles);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -154,37 +119,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	uint16_t adcValue = 0U;
-	double adcSample = 0.0;
-	uint16_t filteredValue = 0U;
-
-	if (HAL_ADC_Start(&hadc1) == HAL_OK &&
-		HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK) {
-		adcValue = HAL_ADC_GetValue(&hadc1);
-	}
-
-	adcSample = (double)adcValue;
-	update_LowPassFilter(&lowPassFilter, adcSample);
-	filteredValue = clamp_to_dac_code(lowPassFilter.out[0]);
-
-	writeDAC(&hi2c1, filteredValue);
-	writeByteRAM(&hspi1, ramAddress, (uint8_t)(filteredValue & 0xFFU));
-	writeByteRAM(&hspi1, (uint16_t)(ramAddress + 1U), (uint8_t)(filteredValue >> 8));
-
-	if ((HAL_GetTick() - lastUsbLogTick) >= USB_LOG_PERIOD_MS) {
-		int logLen = snprintf(logBuf, sizeof(logBuf), "%.2f,%.2f\r\n", adcSample, lowPassFilter.out[0]);
-
-		if (logLen > 0) {
-			uint16_t txLen = (logLen < (int)sizeof(logBuf)) ? (uint16_t)logLen : (uint16_t)(sizeof(logBuf) - 1U);
-			(void)CDC_Transmit_FS((uint8_t *)logBuf, txLen);
-		}
-
-		lastUsbLogTick = HAL_GetTick();
-	}
-
-	ramAddress = next_ram_sample_address(ramAddress);
-
-	HAL_Delay(LOOP_DELAY_MS);
+	apollo_app_task(&apollo_app);
   }
   /* USER CODE END 3 */
 }
@@ -424,13 +359,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
-  HAL_GPIO_WritePin(RAM_CS_GPIO_PORT, RAM_CS_PIN, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(SRAM_23K256_CS_GPIO_PORT, SRAM_23K256_CS_PIN, GPIO_PIN_SET);
 
-  GPIO_InitStruct.Pin = RAM_CS_PIN;
+  GPIO_InitStruct.Pin = SRAM_23K256_CS_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(RAM_CS_GPIO_PORT, &GPIO_InitStruct);
+  HAL_GPIO_Init(SRAM_23K256_CS_GPIO_PORT, &GPIO_InitStruct);
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
