@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  host-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run host tests
+        run: make -C tests/host test
+
+      - name: Check required docs
+        run: |
+          test -f README.md
+          test -f REPOSITORY_STRUCTURE.md
+          test -f docs/architecture.md
+          test -f docs/firmware.md
+          test -f docs/dsp_filters.md
+          test -f docs/validation.md
