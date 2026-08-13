@@ -115,6 +115,31 @@ static void app_execute_command(apollo_app_t *app, const apollo_cli_command_t *c
 		app_send_command_status(app, "calibrate dac", status);
 		break;
 
+	case APOLLO_CLI_COMMAND_SD_MOUNT:
+		/* Re-runs detection so a card inserted after boot can be picked up. */
+		status = sd_card_init(&app->sd_card,
+							  app->sd_card.spi,
+							  SD_CARD_CS_GPIO_PORT,
+							  SD_CARD_CS_PIN,
+							  APOLLO_SPI_TIMEOUT_MS);
+		app_send_command_status(app, "sd mount", status);
+		break;
+
+	case APOLLO_CLI_COMMAND_SD_START:
+		status = apollo_sd_log_start(&app->sd_log);
+		app_send_command_status(app, "sd start", status);
+		break;
+
+	case APOLLO_CLI_COMMAND_SD_STOP:
+		status = apollo_sd_log_stop(&app->sd_log);
+		app_send_command_status(app, "sd stop", status);
+		break;
+
+	case APOLLO_CLI_COMMAND_SD_SYNC:
+		status = apollo_sd_log_sync(&app->sd_log);
+		app_send_command_status(app, "sd sync", status);
+		break;
+
 	default:
 		app_send_command_status(app, "command", APOLLO_STATUS_INVALID_ARG);
 		break;
@@ -172,6 +197,10 @@ static void app_process_sample(apollo_app_t *app, uint32_t now_ms) {
 		apollo_diagnostics_record_sram_error(&app->diagnostics);
 	}
 
+	/* No-op unless "sd start" opened a file. A card yanked mid-run fails here
+	   once, drops the logger to its error state, and is not retried. */
+	(void)apollo_sd_log_write(&app->sd_log, &sample);
+
 	apollo_diagnostics_update_sample(&app->diagnostics, &sample);
 
 	if (app->telemetry_enabled != 0U &&
@@ -187,6 +216,7 @@ apollo_status_t apollo_app_init(apollo_app_t *app, const apollo_app_handles_t *h
 	apollo_status_t adc_status;
 	apollo_status_t dac_status;
 	apollo_status_t sram_status;
+	apollo_status_t sd_status;
 	uint32_t now_ms;
 
 	if (app == NULL || handles == NULL ||
@@ -215,7 +245,14 @@ apollo_status_t apollo_app_init(apollo_app_t *app, const apollo_app_handles_t *h
 	}
 	apollo_storage_init(&app->storage, &app->sram, (sram_status == APOLLO_STATUS_OK) ? 1U : 0U);
 
-	(void)sd_card_init(handles->sram_spi);
+	/* Shares SPI1 with the SRAM; the driver handles the clock change itself.
+	   A missing card is normal, so the result is reported but not fatal. */
+	sd_status = sd_card_init(&app->sd_card,
+							 handles->sram_spi,
+							 SD_CARD_CS_GPIO_PORT,
+							 SD_CARD_CS_PIN,
+							 APOLLO_SPI_TIMEOUT_MS);
+	apollo_sd_log_init(&app->sd_log, &app->sd_card);
 
 	now_ms = HAL_GetTick();
 	app->last_sample_tick = now_ms;
@@ -231,6 +268,9 @@ apollo_status_t apollo_app_init(apollo_app_t *app, const apollo_app_handles_t *h
 	}
 	if (sram_status != APOLLO_STATUS_OK) {
 		app_send_command_status(app, "sram", sram_status);
+	}
+	if (sd_status != APOLLO_STATUS_OK) {
+		app_send_command_status(app, "sd", sd_status);
 	}
 	app_send_help(app);
 

@@ -5,9 +5,11 @@
 #include "apollo_status.h"
 #include "app/apollo_cli.h"
 #include "app/apollo_diagnostics.h"
+#include "app/apollo_sd_log.h"
 #include "app/apollo_signal_chain.h"
 #include "app/apollo_storage.h"
 #include "drivers/dac_driver.h"
+#include "drivers/sd_card.h"
 #include "drivers/sram_23k256.h"
 #include "platform/apollo_adc.h"
 #include "stm32f4xx_hal.h"
@@ -28,6 +30,8 @@ typedef struct {
 	dac_driver_t dac;
 	sram_23k256_t sram;
 	apollo_storage_t storage;
+	sd_card_t sd_card;
+	apollo_sd_log_t sd_log;
 	apollo_signal_chain_t signal_chain;
 	apollo_diagnostics_t diagnostics;
 	uint32_t sequence;

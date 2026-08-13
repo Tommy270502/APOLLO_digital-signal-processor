@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app/apollo_app.h"
+#include "drivers/sd_card.h"
 #include "drivers/sram_23k256.h"
 /* USER CODE END Includes */
 
@@ -359,13 +360,22 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* Both chip selects idle high before the SPI peripheral is used, so neither
+     device is addressed while the bus settles. */
   HAL_GPIO_WritePin(SRAM_23K256_CS_GPIO_PORT, SRAM_23K256_CS_PIN, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(SD_CARD_CS_GPIO_PORT, SD_CARD_CS_PIN, GPIO_PIN_SET);
 
   GPIO_InitStruct.Pin = SRAM_23K256_CS_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(SRAM_23K256_CS_GPIO_PORT, &GPIO_InitStruct);
+
+  GPIO_InitStruct.Pin = SD_CARD_CS_PIN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(SD_CARD_CS_GPIO_PORT, &GPIO_InitStruct);
 /* USER CODE END MX_GPIO_Init_2 */
 }
 

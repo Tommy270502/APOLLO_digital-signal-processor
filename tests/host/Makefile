@@ -12,6 +12,8 @@ SOURCES := \
 	$(FW_ROOT)/Core/Src/app/apollo_diagnostics.c \
 	$(FW_ROOT)/Core/Src/app/apollo_cli.c \
 	$(FW_ROOT)/Core/Src/app/apollo_telemetry.c \
+	$(FW_ROOT)/Core/Src/app/apollo_sd_format.c \
+	$(FW_ROOT)/Core/Src/drivers/sd_card_proto.c \
 	test_runner.c
 
 BUILD_DIR := build

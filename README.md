@@ -31,7 +31,7 @@ flowchart LR
     MCU -- "I2C1 PB6/PB7" --> DAC["MCP4725-family\n12-bit I2C DAC"]
     DAC --> AOUT["Analog output"]
     MCU -- "SPI1 PA5/PA6/PA7" --> SRAM["23K256\n32 KiB SPI SRAM"]
-    MCU -- "SPI1 + SD_nCS" --> SD["microSD socket\nfirmware unsupported"]
+    MCU -- "SPI1 + SD_nCS" --> SD["microSD socket\nFatFs CSV logging"]
     MCU --> SWD["SWD debug"]
     MCU --> UART["USART1 header"]
 ```
@@ -163,7 +163,8 @@ diagnostics, calibration/clipping math, and signal-chain demo paths.
 - Hardware-dependent behavior requires board validation:
   ADC channel accuracy, DAC output voltage, SRAM SPI timing, and USB behavior
   under sustained traffic.
-- microSD hardware is present, but firmware support is explicitly unsupported
+- microSD logging writes CSV through FatFs over an SPI block driver; the
+  logic is covered by host tests but has not been exercised on a card yet
   until a real SPI block-device and filesystem implementation is added.
 
 See [docs/validation.md](docs/validation.md) for the full validation checklist.
@@ -181,7 +182,7 @@ See [docs/validation.md](docs/validation.md) for the full validation checklist.
 ## Future Work
 
 - Move ADC acquisition to timer-triggered DMA with overrun accounting.
-- Add real microSD support using a validated SPI block-device layer and FatFs.
+- Validate microSD logging on hardware and record the observed results.
 - Add fixture-based hardware tests for DAC linearity, ADC channel calibration,
   SRAM retention, and USB throughput.
 - Add optional firmware CI if a reproducible STM32 toolchain image is adopted.

@@ -145,5 +145,25 @@ apollo_status_t apollo_cli_parse(const char *line, apollo_cli_command_t *command
 		return APOLLO_STATUS_OK;
 	}
 
+	if (strcmp(line, "sd mount") == 0) {
+		command->type = APOLLO_CLI_COMMAND_SD_MOUNT;
+		return APOLLO_STATUS_OK;
+	}
+
+	if (strcmp(line, "sd start") == 0) {
+		command->type = APOLLO_CLI_COMMAND_SD_START;
+		return APOLLO_STATUS_OK;
+	}
+
+	if (strcmp(line, "sd stop") == 0) {
+		command->type = APOLLO_CLI_COMMAND_SD_STOP;
+		return APOLLO_STATUS_OK;
+	}
+
+	if (strcmp(line, "sd sync") == 0) {
+		command->type = APOLLO_CLI_COMMAND_SD_SYNC;
+		return APOLLO_STATUS_OK;
+	}
+
 	return APOLLO_STATUS_INVALID_ARG;
 }

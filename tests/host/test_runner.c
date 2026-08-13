@@ -3,8 +3,10 @@
 
 #include "app/apollo_cli.h"
 #include "app/apollo_diagnostics.h"
+#include "app/apollo_sd_format.h"
 #include "app/apollo_signal_chain.h"
 #include "app/apollo_telemetry.h"
+#include "drivers/sd_card_proto.h"
 #include "dsp/dsp_filters.h"
 
 static int failures;
@@ -238,6 +240,115 @@ static void test_calibration_signal_path(void) {
 	expect_near(sample.filtered, 2100.0f, 0.5f, "calibrated adc output");
 }
 
+/* CMD0 and CMD8 have fixed CRCs published in the SD specification, so they
+   pin the CRC7 implementation to known-good values rather than to itself. */
+static void test_sd_command_frames(void) {
+	uint8_t frame[SD_COMMAND_FRAME_BYTES];
+
+	sd_build_command(frame, SD_CMD0_GO_IDLE_STATE, 0UL);
+	expect_true(frame[0] == 0x40U, "cmd0 start bits");
+	expect_true(frame[5] == 0x95U, "cmd0 crc is the specified 0x95");
+
+	sd_build_command(frame, SD_CMD8_SEND_IF_COND, SD_CMD8_ARGUMENT);
+	expect_true(frame[0] == 0x48U, "cmd8 index");
+	expect_true(frame[1] == 0x00U && frame[2] == 0x00U &&
+				frame[3] == 0x01U && frame[4] == 0xAAU, "cmd8 argument order");
+	expect_true(frame[5] == 0x87U, "cmd8 crc is the specified 0x87");
+
+	sd_build_command(frame, SD_CMD17_READ_SINGLE_BLOCK, 0x00000200UL);
+	expect_true(frame[0] == 0x51U, "cmd17 index");
+	expect_true((frame[5] & 0x01U) == 0x01U, "crc7 carries the stop bit");
+}
+
+static void test_sd_crc16(void) {
+	uint8_t block[SD_BLOCK_SIZE];
+
+	/* All-zero and all-0xFF blocks are the two cases a wrong shift direction
+	   or seed would still get right by accident, so check a pattern too. */
+	memset(block, 0x00, sizeof(block));
+	expect_true(sd_crc16(block, sizeof(block)) == 0x0000U, "crc16 of zeroed block");
+
+	memset(block, 0xFF, sizeof(block));
+	expect_true(sd_crc16(block, sizeof(block)) == 0x7FA1U, "crc16 of 0xFF block");
+
+	{
+		const uint8_t vector[9] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		expect_true(sd_crc16(vector, sizeof(vector)) == 0x31C3U, "crc16 check vector");
+	}
+}
+
+static void test_sd_csd_capacity(void) {
+	uint8_t csd[16];
+
+	/* CSD v2, C_SIZE = 3811 -> (3811 + 1) * 1024 sectors = 3904 MiB card. */
+	memset(csd, 0, sizeof(csd));
+	csd[0] = 0x40U;
+	csd[7] = 0x00U;
+	csd[8] = 0x0EU;
+	csd[9] = 0xE3U;
+	expect_true(sd_csd_sector_count(csd) == (3811U + 1U) * 1024U, "csd v2 sector count");
+
+	/* CSD v1 with READ_BL_LEN = 9 (512 byte blocks): capacity is
+	   (C_SIZE + 1) * 2^(C_SIZE_MULT + 2) blocks. */
+	memset(csd, 0, sizeof(csd));
+	csd[0] = 0x00U;
+	csd[5] = 0x09U;             /* READ_BL_LEN = 9 */
+	csd[6] = 0x00U;
+	csd[7] = 0x20U;             /* C_SIZE = 128 */
+	csd[8] = 0x00U;
+	csd[9] = 0x01U;             /* C_SIZE_MULT high bits */
+	csd[10] = 0x80U;            /* C_SIZE_MULT low bit -> mult = 3 */
+	expect_true(sd_csd_sector_count(csd) == (128U + 1U) * 32U, "csd v1 sector count");
+
+	memset(csd, 0, sizeof(csd));
+	csd[0] = 0xC0U;             /* reserved structure version */
+	expect_true(sd_csd_sector_count(csd) == 0U, "unknown csd structure rejected");
+}
+
+static void test_sd_addressing(void) {
+	expect_true(sd_type_is_block_addressed(SD_CARD_TYPE_SDHC) == 1U, "sdhc is block addressed");
+	expect_true(sd_type_is_block_addressed(SD_CARD_TYPE_SD_V2) == 0U, "sdsc is byte addressed");
+
+	/* The same logical block becomes a byte offset on standard capacity cards
+	   and stays a block index on high capacity ones. */
+	expect_true(sd_block_to_argument(SD_CARD_TYPE_SDHC, 5U) == 5U, "sdhc block argument");
+	expect_true(sd_block_to_argument(SD_CARD_TYPE_SD_V1, 5U) == 5U * SD_BLOCK_SIZE,
+				"sdsc byte argument");
+}
+
+static void test_sd_record_format(void) {
+	apollo_signal_sample_t sample;
+	char buffer[APOLLO_SD_RECORD_LENGTH];
+	char small[8];
+	int written;
+
+	memset(&sample, 0, sizeof(sample));
+	sample.timestamp_ms = 1234U;
+	sample.sequence = 7U;
+	sample.channel = 1U;
+	sample.raw_adc = 2048U;
+	sample.filtered = 2047.5f;
+	sample.dac_code = 2047U;
+	sample.flags = 0U;
+
+	written = apollo_sd_format_record(buffer, sizeof(buffer), &sample);
+	expect_true(written > 0, "record formats");
+	expect_true(strncmp(buffer, "1234,7,1,2048,2047.5000,2047,", 29) == 0, "record field order");
+	expect_true(strstr(buffer, "\r\n") != NULL, "record ends with crlf");
+
+	/* A record that will not fit must fail rather than silently truncate. */
+	expect_true(apollo_sd_format_record(small, sizeof(small), &sample) < 0,
+				"record rejects short buffer");
+
+	written = apollo_sd_format_header(buffer, sizeof(buffer));
+	expect_true(written > 0 && strncmp(buffer, "timestamp_ms,", 13) == 0, "header row");
+
+	expect_true(apollo_sd_format_filename(buffer, sizeof(buffer), 12U) == 12 &&
+				strcmp(buffer, "LOG00012.CSV") == 0, "log filename is 8.3");
+	expect_true(apollo_sd_format_filename(buffer, sizeof(buffer), 100000UL) < 0,
+				"log index bound enforced");
+}
+
 int main(void) {
 	test_lowpass_step();
 	test_highpass_step_decay();
@@ -250,6 +361,11 @@ int main(void) {
 	test_calibration_signal_path();
 	test_signal_chain_saturation();
 	test_diagnostics_and_telemetry();
+	test_sd_command_frames();
+	test_sd_crc16();
+	test_sd_csd_capacity();
+	test_sd_addressing();
+	test_sd_record_format();
 
 	if (failures != 0) {
 		printf("%d host test(s) failed\n", failures);

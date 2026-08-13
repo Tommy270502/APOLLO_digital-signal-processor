@@ -22,6 +22,20 @@ instead of naming the source files after MCP4726.
 
 ## SD-Card Status
 
-The microSD socket is present in hardware. Firmware support is intentionally
-reported as unsupported until an SPI block-device layer, card initialization,
-and filesystem integration are implemented and validated.
+The microSD socket shares SPI1 with the SRAM through the separate `SD_nCS`
+net on PB0. Firmware implements an SPI-mode block driver
+(`drivers/sd_card.c`) under FatFs, logging samples as CSV.
+
+Two constraints the driver handles rather than the caller:
+
+- Cards must be clocked at 400 kHz or slower until initialisation completes,
+  while the SRAM runs the bus at full speed. Each entry point sets the
+  prescaler it needs and restores the previous value before returning.
+- The card only releases MISO one clock after CS rises, so every transaction
+  ends with a padding byte.
+
+Protocol logic (CRC7, CRC16, CSD capacity decoding, command framing) lives in
+`drivers/sd_card_proto.c`, which is HAL-free and covered by host tests
+against the CMD0/CMD8 CRC values published in the SD specification.
+
+Card behaviour has not been observed on hardware yet.
