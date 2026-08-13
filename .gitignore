@@ -62,3 +62,6 @@ desktop.ini
 CLAUDE.md
 AGENTS.md
 .github/copilot-instructions.md
+
+# KiCad local history snapshots (contains its own nested git repo)
+.history/
